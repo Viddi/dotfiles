@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
@@ -62,7 +63,7 @@ filetype plugin indent on    " required
 syntax enable
 set background=dark
 if has('gui_running')
-  colorscheme Gruvbox
+  colorscheme solarized
 else
   colorscheme Tomorrow-Night-Eighties
 endif
