@@ -20,11 +20,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggles relative numbers when not in insert mode
 Plugin 'tpope/vim-surround' " Hotkeys to surround selected text with any tags 
 Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tmhedberg/matchit' " An extetion to jumping with '%'
+Plugin 'bling/vim-bufferline'
 
 " For some reason this isn't working with rainbow_parentheses
 " Plugin 'pangloss/vim-javascript' " Javascript formatter
@@ -69,6 +69,7 @@ else
 endif
 
 " Vim configuration
+set relativenumber
 set number        " line numbers
 set smartindent
 set tabstop=2
