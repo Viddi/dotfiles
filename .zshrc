@@ -72,3 +72,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applicat
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Aliases for ssh
+alias ssh-helios="ssh root@nplexity.com"
+alias ssh-gandalf="ssh root@gitlab.nplexity.com"
+alias ssh-heimdall="ssh root@coderacer.com"
+alias ssh-cosmos="ssh root@dev.tallyrally.co"
