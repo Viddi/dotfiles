@@ -69,6 +69,7 @@ else
 endif
 
 " Vim configuration
+set encoding=utf-8
 set relativenumber
 set number        " line numbers
 set smartindent
