@@ -78,6 +78,7 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set autoindent " always set autoindenting on
+set backspace=indent,eol,start
 
 " Vim custom keymap
 let mapleader = ","
