@@ -25,6 +25,7 @@ Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so i
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tmhedberg/matchit' " An extetion to jumping with '%'
 Plugin 'bling/vim-bufferline'
+Plugin 'ap/vim-buftabline'
 
 " For some reason this isn't working with rainbow_parentheses
 " Plugin 'pangloss/vim-javascript' " Javascript formatter
@@ -105,3 +106,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Vim-move mapped to ctrl
 let g:move_key_modifier = 'C'
+
+" vim-buftabline keymap
+nnoremap <D-]> :bnext<CR>
+nnoremap <D-[> :bprev<CR>
