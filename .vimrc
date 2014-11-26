@@ -24,13 +24,11 @@ Plugin 'tpope/vim-surround' " Hotkeys to surround selected text with any tags
 Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tmhedberg/matchit' " An extetion to jumping with '%'
-Plugin 'bling/vim-bufferline'
 Plugin 'ap/vim-buftabline'
 
 " For some reason this isn't working with rainbow_parentheses
 " Plugin 'pangloss/vim-javascript' " Javascript formatter
 
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'rizzatti/dash.vim'
 Bundle 'matze/vim-move'
@@ -87,6 +85,9 @@ let mapleader = ","
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
+
+" NERDTree config
+autocmd vimenter * NERDTree
 
 " CtrlP Mapping
 let g:ctrlp_map = '<leader>t'
