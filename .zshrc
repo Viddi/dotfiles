@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+ZSH_THEME="steeef"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -51,6 +51,7 @@ ZSH_THEME="pygmalion"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/Cellar/z/1.8/etc/profile.d/z.sh
 
 # User configuration
 
@@ -73,6 +74,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applicat
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# iTerm2
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+
 # Aliases for ssh
 alias ssh-helios="ssh root@nplexity.com"
 alias ssh-gandalf="ssh root@gitlab.nplexity.com"
@@ -80,3 +85,14 @@ alias ssh-heimdall="ssh root@coderacer.com"
 alias ssh-cosmos="ssh root@dev.tallyrally.co"
 alias ssh-viddi="ssh -p 23 viddi@vidarottosson.com"
 alias ssh-neptune="ssh root@162.243.248.182"
+
+# Aliases for git
+alias gs="git status"
+alias gcam="git commit -am"
+alias gaa="git add -A"
+alias gcm="git commit -m"
+alias gf="git fetch"
+alias gfo="git fetch origin"
+alias gp="git push"
+alias gpo="git push origin"
+alias grh="git reset --hard"

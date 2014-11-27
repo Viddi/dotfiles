@@ -87,7 +87,7 @@ imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 
 " NERDTree config
-autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR> " Hotkey C-n to toggle NERDTree
 
 " CtrlP Mapping
 let g:ctrlp_map = '<leader>t'
