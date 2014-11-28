@@ -63,8 +63,6 @@ syntax enable
 set background=dark
 if has('gui_running')
   colorscheme solarized
-else
-  colorscheme Tomorrow-Night-Eighties
 endif
 
 " Vim configuration
