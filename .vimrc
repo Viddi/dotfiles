@@ -16,21 +16,18 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround' " Hotkeys to surround selected text with any tags 
 Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
-Plugin 'tmhedberg/matchit' " An extetion to jumping with '%'
-Plugin 'ap/vim-buftabline'
-
-" For some reason this isn't working with rainbow_parentheses
-" Plugin 'pangloss/vim-javascript' " Javascript formatter
+Plugin 'tmhedberg/matchit' " An extention to jumping with '%'
+Plugin 'ap/vim-buftabline' " Display open buffers in a tab line
+Plugin 'tomtom/tcomment_vim'
+Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 
 Bundle 'flazz/vim-colorschemes'
-Bundle 'rizzatti/dash.vim'
 Bundle 'matze/vim-move'
 
 " YouCompleteMe compilation process:
@@ -84,17 +81,29 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 
-" NERDTree config
+" Highlight search
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nmap <leader>q :noh<CR>
+
+" Set 256 color support
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
+" NERDTree
 map <C-n> :NERDTreeToggle<CR> " Hotkey C-n to toggle NERDTree
 
-" CtrlP Mapping
+" CtrlP
 let g:ctrlp_map = '<leader>t'
 
 " Automatically close scratch preview
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" YouCompleteMe fallback config
+" YouCompleteMe fallback
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " Rainbow Parentheses always on
@@ -106,6 +115,14 @@ au Syntax * RainbowParenthesesLoadBraces
 " Vim-move mapped to ctrl
 let g:move_key_modifier = 'C'
 
-" vim-buftabline keymap
+" vim-buftabline
 nnoremap <D-]> :bnext<CR>
 nnoremap <D-[> :bprev<CR>
+
+" TComment
+nmap <D-/> :TComment<CR>
+vmap <D-/> :TCommentBlock<CR>
+
+" vim-airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
