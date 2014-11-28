@@ -80,7 +80,6 @@ let mapleader = ","
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
-map <C-t> <esc>:tabnew<CR>
 
 " Highlight search
 set incsearch
@@ -95,7 +94,7 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 
 " CtrlP
 let g:ctrlp_map = '<leader>t'
@@ -121,8 +120,8 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 
 " TComment
-nmap <leader>/ :TComment<CR>
-vmap <leader>/ :TCommentBlock<CR>
+nmap <leader>c :TComment<CR>
+vmap <leader>c :TCommentBlock<CR>
 
 " vim-airline
 set laststatus=2
