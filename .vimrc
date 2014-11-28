@@ -26,6 +26,7 @@ Plugin 'ap/vim-buftabline' " Display open buffers in a tab line
 Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
+Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
 
 Bundle 'flazz/vim-colorschemes'
 Bundle 'matze/vim-move'
@@ -94,7 +95,7 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR> " Hotkey C-n to toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " CtrlP
 let g:ctrlp_map = '<leader>t'
@@ -116,12 +117,12 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:move_key_modifier = 'C'
 
 " vim-buftabline
-nnoremap <D-]> :bnext<CR>
-nnoremap <D-[> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
 
 " TComment
-nmap <D-/> :TComment<CR>
-vmap <D-/> :TCommentBlock<CR>
+nmap <leader>/ :TComment<CR>
+vmap <leader>/ :TCommentBlock<CR>
 
 " vim-airline
 set laststatus=2
