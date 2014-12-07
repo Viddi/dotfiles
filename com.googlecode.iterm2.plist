@@ -24619,24 +24619,10 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf702-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>2</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 		<key>0xf702-0x320000</key>
 		<dict>
 			<key>Action</key>
 			<integer>33</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf703-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>0</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -24728,6 +24714,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSColorPanelMode</key>
+	<string>6</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Downloads/iTerm2-Color-Schemes-master/schemes</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -24761,11 +24749,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>633 169 809 442 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>711 542 924 485 0 0 1680 1027 </string>
+	<string>930 563 924 485 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>148 185 1221 689 0 0 1680 1027 </string>
+	<string>293 135 1313 808 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>229 95 570 451 0 0 1680 1027 </string>
+	<string>-1642 100 585 451 -1920 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -24778,20 +24766,20 @@
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.37955313920974731</real>
+				<real>0.30196079611778259</real>
 				<key>Green Component</key>
-				<real>0.37955313920974731</real>
+				<real>0.30196079611778259</real>
 				<key>Red Component</key>
-				<real>0.37955313920974731</real>
+				<real>0.30196079611778259</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.46358466148376465</real>
+				<real>0.47236558794975281</real>
 				<key>Green Component</key>
-				<real>0.46358466148376465</real>
+				<real>0.47236558794975281</real>
 				<key>Red Component</key>
-				<real>0.65409886837005615</real>
+				<real>0.6664884090423584</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -24913,11 +24901,11 @@
 			<key>Ansi 9 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.63921570777893066</real>
+				<real>0.48007199168205261</real>
 				<key>Green Component</key>
-				<real>0.63921570777893066</real>
+				<real>0.48007199168205261</real>
 				<key>Red Component</key>
-				<real>0.86274510622024536</real>
+				<real>0.65062391757965088</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -25161,9 +25149,16 @@
 				<key>0xf702-0x280000</key>
 				<dict>
 					<key>Action</key>
+					<integer>10</integer>
+					<key>Text</key>
+					<string>b</string>
+				</dict>
+				<key>0xf702-0x300000</key>
+				<dict>
+					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x44</string>
+					<string>0x01</string>
 				</dict>
 				<key>0xf703-0x220000</key>
 				<dict>
@@ -25189,9 +25184,16 @@
 				<key>0xf703-0x280000</key>
 				<dict>
 					<key>Action</key>
+					<integer>10</integer>
+					<key>Text</key>
+					<string>f</string>
+				</dict>
+				<key>0xf703-0x300000</key>
+				<dict>
+					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x43</string>
+					<string>0x05</string>
 				</dict>
 				<key>0xf704-0x20000</key>
 				<dict>
@@ -25321,7 +25323,7 @@
 			<key>Normal Font</key>
 			<string>Monaco 12</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -25558,7 +25560,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-11-28T04:27:18Z</date>
+	<date>2014-12-01T05:32:53Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
