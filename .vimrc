@@ -81,6 +81,8 @@ let mapleader = ","
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
+set backspace=indent,eol,start
+
 " Highlight search
 set incsearch
 set ignorecase
