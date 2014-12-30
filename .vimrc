@@ -22,7 +22,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tmhedberg/matchit' " An extention to jumping with '%'
-Plugin 'ap/vim-buftabline' " Display open buffers in a tab line
+Plugin 'bling/vim-bufferline'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
@@ -61,7 +61,24 @@ syntax enable
 set background=dark
 if has('gui_running')
   colorscheme solarized
+else
+  colorscheme base16-railscasts
 endif
+
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
 
 " Vim configuration
 set encoding=utf-8
