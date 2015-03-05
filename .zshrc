@@ -78,6 +78,12 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applicat
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
+# mkdir, cd into it
+mkcd () {
+  mkdir -p "$*"
+  cd "$*"
+}
+
 # Aliases for ssh
 alias ssh-helios="ssh root@nplexity.com"
 alias ssh-gandalf="ssh root@gitlab.nplexity.com"
@@ -85,6 +91,8 @@ alias ssh-heimdall="ssh root@coderacer.com"
 alias ssh-cosmos="ssh root@dev.tallyrally.co"
 alias ssh-viddi="ssh -p 23 viddi@vidarottosson.com"
 alias ssh-neptune="ssh root@162.243.248.182"
+alias ssh-porthos="ssh root@104.236.74.87"
+alias ssh-exeter="ssh root@104.131.42.81"
 
 # Aliases for git
 alias gs="git status"
