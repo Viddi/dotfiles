@@ -27,6 +27,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
+Plugin 'jpalardy/vim-slime'
 
 Bundle 'flazz/vim-colorschemes'
 Bundle 'matze/vim-move'
@@ -130,3 +131,6 @@ vmap <leader>c :TCommentBlock<CR>
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+
+" vim-slime
+let g:slime_target = "tmux"
