@@ -28,6 +28,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
 Plugin 'jpalardy/vim-slime'
+Plugin 'Lokaltog/vim-easymotion'
 
 Bundle 'flazz/vim-colorschemes'
 Bundle 'matze/vim-move'
@@ -77,6 +78,8 @@ set expandtab
 set smarttab
 set autoindent " always set autoindenting on
 set hidden " set buffers to hidden - keep history
+set splitright " open split on right 
+set splitbelow " open split below
 
 " Vim custom keymap
 let mapleader = ","
@@ -134,3 +137,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-slime
 let g:slime_target = "tmux"
+
+" Easymotion
+map <Leader> <Plug>(easymotion-prefix)

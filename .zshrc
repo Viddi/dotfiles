@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+ZSH_THEME="steeef"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -93,6 +93,7 @@ alias ssh-porthos="ssh root@104.236.74.87"
 alias ssh-exeter="ssh root@104.131.42.81"
 alias ssh-tyrael="ssh root@codestandards.net"
 alias ssh-lokaleignir="ssh root@lokaleignir.is"
+alias ssh-morpheus="ssh root@104.236.243.47"
 
 # Aliases for git
 alias gs="git status"
