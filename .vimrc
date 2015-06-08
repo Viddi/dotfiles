@@ -22,7 +22,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tmhedberg/matchit' " An extention to jumping with '%'
-Plugin 'bling/vim-bufferline'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
