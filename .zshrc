@@ -107,3 +107,8 @@ alias gpo="git push origin"
 alias grh="git reset --hard"
 alias gd="git diff"
 alias gco="git checkout"
+
+# Aliases for tmux
+alias tls="tmux list-sessions"
+alias tns="tmux new -s"
+alias tat="tmux a -t"
