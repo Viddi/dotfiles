@@ -1,4 +1,6 @@
-" ################ Vundle Configuration ################ "
+" ========================================================================
+"                       Vundle Configuration
+" ========================================================================
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -10,27 +12,25 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim' " Adds matching colors to parenthesis so it's easier to understand 
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
-Plugin 'tmhedberg/matchit' " An extention to jumping with '%'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
-Plugin 'jpalardy/vim-slime'
+Plugin 'ap/vim-buftabline'
 Plugin 'Lokaltog/vim-easymotion'
-
-Bundle 'flazz/vim-colorschemes'
-Bundle 'matze/vim-move'
+Plugin 'flazz/vim-colorschemes'
 
 " YouCompleteMe compilation process:
 " $ cd ~
@@ -55,9 +55,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" ################ End Configuration ################ "
+" ========================================================================
+"                           Themes & colors
+" ========================================================================
 
-" Color Schemes Configuration
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
 syntax enable
 set background=dark
 if has('gui_running')
@@ -66,49 +71,47 @@ else
   colorscheme solarized
 endif
 
-" Vim configuration
+" ========================================================================
+"                             Vim Stuff
+" ========================================================================
+set backspace=indent,eol,start
 set encoding=utf-8
 set relativenumber
-set number        " line numbers
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
-set autoindent " always set autoindenting on
+set autoindent
 set hidden " set buffers to hidden - keep history
 set splitright " open split on right 
 set splitbelow " open split below
-
-" Vim custom keymap
-let mapleader = ","
-
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
-set backspace=indent,eol,start
-
-" Highlight search
-set incsearch
+set backupdir=~/.tmp
+set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
+set incsearch " Highlight search
 set ignorecase
 set smartcase
 set hlsearch
-nmap <leader>q :noh<CR>
 
-" Set 256 color support
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-endif
+let mapleader = ","
+
+map <leader>q :noh<CR>
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
+" Automatically close scratch preview
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" ========================================================================
+"                          Plugin Configuration
+" ========================================================================
 
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
 
 " CtrlP
 let g:ctrlp_map = '<leader>t'
-
-" Automatically close scratch preview
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " YouCompleteMe fallback
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -118,9 +121,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" Vim-move mapped to ctrl
-let g:move_key_modifier = 'C'
 
 " vim-buftabline
 nnoremap <C-n> :bnext<CR>
@@ -133,9 +133,6 @@ vmap <leader>c :TCommentBlock<CR>
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-
-" vim-slime
-let g:slime_target = "tmux"
 
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
