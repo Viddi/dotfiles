@@ -28,17 +28,17 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
-Plugin 'ap/vim-buftabline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'edkolev/tmuxline.vim'
 
+Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe compilation process:
 " $ cd ~
 " $ mkdir ycm_build
 " $ cd ycm_build
 " $ cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 " $ make ycm_support_libs
-Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,6 +99,13 @@ map <leader>q :noh<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
+" Cycle through buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+
+" Execute macro in q
+map Q @q
+
 " Automatically close scratch preview
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -122,10 +129,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" vim-buftabline
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprev<CR>
-
 " TComment
 nmap <leader>c :TComment<CR>
 vmap <leader>c :TCommentBlock<CR>
@@ -133,6 +136,7 @@ vmap <leader>c :TCommentBlock<CR>
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
