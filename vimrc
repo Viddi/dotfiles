@@ -31,6 +31,7 @@ Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe compilation process:
