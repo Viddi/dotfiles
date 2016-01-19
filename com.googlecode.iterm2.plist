@@ -591,6 +591,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Downloads/dracula-theme-master/iterm</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -599,10 +601,14 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1503 594 773 477 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1545 345 924 485 0 0 2560 1417 </string>
+	<string>601 670 924 485 0 0 2560 1417 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1080 1009 384 129 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1606 68 1396 897 -1920 0 1920 1057 </string>
+	<string>1280 78 1292 1339 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1111 82 1361 1248 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
@@ -1168,7 +1174,7 @@
 			<key>Name</key>
 			<string>Viddi</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>LiterationMonoPowerline 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -1347,6 +1353,10 @@
 			<string>/Users/Viddi</string>
 		</dict>
 	</array>
+	<key>NoSyncTimeOfLastPromo</key>
+	<real>456384661.88824397</real>
+	<key>NoSyncTimeOfLastPromoDownload</key>
+	<real>474835727.98479199</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1405,11 +1415,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-04-12T16:10:22Z</date>
+	<date>2016-01-18T18:47:09Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1463,6 +1473,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.0.0.20141103</string>
+	<string>2.1.4</string>
 </dict>
 </plist>
