@@ -78,6 +78,7 @@ endif
 set backspace=indent,eol,start
 set encoding=utf-8
 set relativenumber
+set number
 set smartindent
 set tabstop=2
 set shiftwidth=2
