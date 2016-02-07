@@ -25,13 +25,15 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
 Plugin 'tomtom/tcomment_vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'rizzatti/dash.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe compilation process:
@@ -142,3 +144,9 @@ let g:airline_powerline_fonts = 1
 
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
+
+" Dash
+nmap <leader>d :Dash<CR>
+
+" Bufkill
+nmap <leader>D :BD<CR>
