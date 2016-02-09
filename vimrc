@@ -103,6 +103,9 @@ map <leader>q :noh<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
+" Go to end of line in insert mode
+imap <C-f> <esc>A
+
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
