@@ -103,9 +103,6 @@ map <leader>q :noh<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
-" Go to end of line in insert mode
-imap <C-f> <esc>A
-
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
@@ -148,8 +145,11 @@ let g:airline_powerline_fonts = 1
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" Dash
-nmap <leader>d :Dash<CR>
-
 " Bufkill
 nmap <leader>D :BD<CR>
+"
+" Kill and pane
+nmap <leader>d :bd<CR>
+
+" Dash
+map <C-d> :Dash<CR>
