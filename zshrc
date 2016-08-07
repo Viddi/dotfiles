@@ -51,7 +51,7 @@ ZSH_THEME="steeef"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/Cellar/z/1.8/etc/profile.d/z.sh
+source /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
