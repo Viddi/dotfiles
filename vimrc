@@ -33,6 +33,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 Plugin 'rizzatti/dash.vim'
 
 Plugin 'Valloric/YouCompleteMe'
@@ -67,7 +68,6 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 syntax enable
-set background=dark
 if has('gui_running')
   colorscheme solarized
 else
@@ -154,3 +154,7 @@ nmap <leader>d :bd<CR>
 
 " Dash
 map <C-d> :Dash<CR>
+
+" Alchemist
+let g:alchemist_tag_stack_map = '<S-T>'
+let g:alchemist_tag_map = '<S-U>'
