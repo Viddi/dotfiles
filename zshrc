@@ -85,15 +85,7 @@ mkcd () {
 }
 
 # Aliases for ssh
-alias ssh-helios="ssh root@nplexity.com"
-alias ssh-gandalf="ssh root@gitlab.nplexity.com"
-alias ssh-heimdall="ssh root@coderacer.com"
-alias ssh-neptune="ssh root@162.243.248.182"
-alias ssh-porthos="ssh root@104.236.74.87"
-alias ssh-exeter="ssh root@104.131.42.81"
-alias ssh-tyrael="ssh root@codestandards.net"
-alias ssh-lokaleignir="ssh root@lokaleignir.is"
-alias ssh-morpheus="ssh root@104.236.243.47"
+alias ssh-viddi="ssh root@162.243.248.182"
 
 # Aliases for git
 alias gs="git status"

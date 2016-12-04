@@ -14,35 +14,25 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab' " Tab for autocompletion while in insert mode
+Plugin 'scrooloose/nerdtree' " Show project structure
 Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'jiangmiao/auto-pairs' " Automatically open/close pairs
+Plugin 'kien/ctrlp.vim' " Look up files in the current tree
+Plugin 'kien/rainbow_parentheses.vim' " Color the parenthesis so it's easier to see
 Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
-Plugin 'tomtom/tcomment_vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tomtom/tcomment_vim' " Better support for commenting code
+Plugin 'vim-airline/vim-airline' " Nice status bar
+Plugin 'vim-airline/vim-airline-themes' " Themes for the status bar
 Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'rizzatti/dash.vim'
-
-Plugin 'Valloric/YouCompleteMe'
-" YouCompleteMe compilation process:
-" $ cd ~
-" $ mkdir ycm_build
-" $ cd ycm_build
-" $ cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-" $ make ycm_support_libs
+Plugin 'Lokaltog/vim-easymotion' " Easier way to move around in a file
+Plugin 'flazz/vim-colorschemes' " More colors
+Plugin 'edkolev/tmuxline.vim' " Tmux info into the status line
+Plugin 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
+Plugin 'slashmili/alchemist.vim' " Elixir integration
+Plugin 'rizzatti/dash.vim' " Support to launch Dash.app from vim
+Plugin 'Valloric/YouCompleteMe' " Autocompletion
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
