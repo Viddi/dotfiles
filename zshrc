@@ -52,10 +52,14 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+source /home/viddi/.linuxbrew/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Android Studio.app/sdk/platform-tools"
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -105,3 +109,6 @@ alias tls="tmux list-sessions"
 alias tns="tmux new -s"
 alias tat="tmux a -t"
 alias tks="tmux kill-session -t"
+
+# Aliases for linux
+alias xclip="xclip -selection c"
