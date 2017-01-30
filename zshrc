@@ -56,8 +56,7 @@ source /home/viddi/.linuxbrew/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/Android Studio.app/sdk/platform-tools"
-export PATH="$HOME/.linuxbrew/bin:$PATH"
+export PATH="$HOME/.linuxbrew/bin:$PATH:$HOME/.linuxbrew/sbin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # export MANPATH="/usr/local/man:$MANPATH"
