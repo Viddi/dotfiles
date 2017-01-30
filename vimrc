@@ -58,6 +58,8 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 syntax enable
+set background=dark
+
 if has('gui_running')
   colorscheme solarized
 else

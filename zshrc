@@ -112,3 +112,6 @@ alias tks="tmux kill-session -t"
 
 # Aliases for linux
 alias xclip="xclip -selection c"
+
+# Aliases for vim
+alias vimnp="vim --noplugin"

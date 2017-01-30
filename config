@@ -4,6 +4,7 @@
 [keybindings]
   close_term = <Alt>w
   copy = <Alt>c
+  cycle_next = <Alt>grave
   edit_window_title = <Alt>e
   new_tab = <Alt>t
   next_tab = <Alt>n
