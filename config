@@ -2,8 +2,13 @@
   enabled_plugins = CustomCommandsMenu, APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
   title_hide_sizetext = True
 [keybindings]
+  close_term = <Alt>w
   copy = <Alt>c
+  edit_window_title = <Alt>e
+  new_tab = <Alt>t
+  next_tab = <Alt>n
   paste = <Alt>v
+  prev_tab = <Alt>p
 [layouts]
   [[default]]
     [[[child1]]]
