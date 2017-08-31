@@ -114,3 +114,5 @@ alias xclip="xclip -selection c"
 
 # Aliases for vim
 alias vimnp="vim --noplugin"
+alias vima="vim --cmd \"let android=1\""
+alias vime="vim --cmd \"let elixir=1\""

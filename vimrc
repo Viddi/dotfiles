@@ -29,9 +29,8 @@ Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
 Plugin 'Lokaltog/vim-easymotion' " Easier way to move around in a file
 Plugin 'flazz/vim-colorschemes' " More colors
 Plugin 'edkolev/tmuxline.vim' " Tmux info into the status line
-Plugin 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
-Plugin 'slashmili/alchemist.vim' " Elixir integration
 Plugin 'rizzatti/dash.vim' " Support to launch Dash.app from vim
+Plugin 'udalov/kotlin-vim' " Kotlin support
 Plugin 'Valloric/YouCompleteMe' " Autocompletion
 
 " All of your Plugins must be added before the following line
@@ -48,6 +47,31 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" ========================================================================
+"                             Environments
+" ========================================================================
+if exists('android')
+  echo "Starting up Android environment"
+
+  Plugin 'hsanson/vim-android'
+
+  if has('unix')
+    if has('mac') " Mac OSX
+      let g:android_sdk_pat = "/Users/ottov001/Library/Android/sdk/"
+    else " Anything not Mac is linux, because who uses windows?
+      " TODO: Finish Linux setup
+      " let g:android_sdk_pat = 
+    endif
+  endif
+endif
+
+if exists('elixir')
+  echo "Starting up Elixir environment"
+
+  Plugin 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
+  Plugin 'slashmili/alchemist.vim' " Elixir integration
+endif
 
 " ========================================================================
 "                           Themes & colors
@@ -89,6 +113,8 @@ set ignorecase
 set smartcase
 set hlsearch
 
+autocmd BufEnter * silent! lcd %:p:h " Set working directory to file being opened
+
 let mapleader = ","
 
 map <leader>q :noh<CR>
@@ -113,9 +139,18 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
 
+" Close vim if NERDTree is ithe only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Open NERDTree when opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
 " CtrlP
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = '/build\|DS_Store\|git'
 
 " YouCompleteMe fallback
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
