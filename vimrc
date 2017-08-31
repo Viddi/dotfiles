@@ -1,52 +1,33 @@
 " ========================================================================
-"                       Vundle Configuration
+"                            Package Manager
 " ========================================================================
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'ervandew/supertab' " Tab for autocompletion while in insert mode
+Plug 'scrooloose/nerdtree' " Show project structure
+Plug 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe
+Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
+Plug 'kien/ctrlp.vim' " Look up files in the current tree
+Plug 'kien/rainbow_parentheses.vim' " Color the parenthesis so it's easier to see
+Plug 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
+Plug 'tomtom/tcomment_vim' " Better support for commenting code
+Plug 'vim-airline/vim-airline' " Nice status bar
+Plug 'vim-airline/vim-airline-themes' " Themes for the status bar
+Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
+Plug 'tpope/vim-unimpaired' " yo before you paste from clipboard
+Plug 'Lokaltog/vim-easymotion' " Easier way to move around in a file
+Plug 'flazz/vim-colorschemes' " More colors
+Plug 'edkolev/tmuxline.vim' " Tmux info into the status line
+Plug 'rizzatti/dash.vim' " Support to launch Dash.app from vim
+Plug 'udalov/kotlin-vim' " Kotlin support
+Plug 'Valloric/YouCompleteMe' " Autocompletion
+Plug 'artur-shaik/vim-javacomplete2'
 
-Plugin 'ervandew/supertab' " Tab for autocompletion while in insert mode
-Plugin 'scrooloose/nerdtree' " Show project structure
-Plugin 'marijnh/tern_for_vim' " Additional autocompletion for YouCompleteMe 
-Plugin 'jiangmiao/auto-pairs' " Automatically open/close pairs
-Plugin 'kien/ctrlp.vim' " Look up files in the current tree
-Plugin 'kien/rainbow_parentheses.vim' " Color the parenthesis so it's easier to see
-Plugin 'vim-scripts/SearchComplete' " Tab-complete for searching words in vim search
-Plugin 'tomtom/tcomment_vim' " Better support for commenting code
-Plugin 'vim-airline/vim-airline' " Nice status bar
-Plugin 'vim-airline/vim-airline-themes' " Themes for the status bar
-Plugin 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
-Plugin 'tpope/vim-unimpaired' " yo before you paste from clipboard
-Plugin 'Lokaltog/vim-easymotion' " Easier way to move around in a file
-Plugin 'flazz/vim-colorschemes' " More colors
-Plugin 'edkolev/tmuxline.vim' " Tmux info into the status line
-Plugin 'rizzatti/dash.vim' " Support to launch Dash.app from vim
-Plugin 'udalov/kotlin-vim' " Kotlin support
-Plugin 'Valloric/YouCompleteMe' " Autocompletion
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 " ========================================================================
 "                             Environments
@@ -54,11 +35,13 @@ filetype plugin indent on    " required
 if exists('android')
   echo "Starting up Android environment"
 
-  Plugin 'hsanson/vim-android'
+  " Plug 'hsanson/vim-android'
+  Plug 'DonnieWest/VimStudio'
 
   if has('unix')
     if has('mac') " Mac OSX
-      let g:android_sdk_pat = "/Users/ottov001/Library/Android/sdk/"
+      " let g:android_sdk_pat = "/Users/ottov001/Library/Android/sdk/"
+      autocmd FileType java setlocal omnifunc=javacomplete#Complete
     else " Anything not Mac is linux, because who uses windows?
       " TODO: Finish Linux setup
       " let g:android_sdk_pat = 
@@ -69,8 +52,8 @@ endif
 if exists('elixir')
   echo "Starting up Elixir environment"
 
-  Plugin 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
-  Plugin 'slashmili/alchemist.vim' " Elixir integration
+  Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
+  Plug 'slashmili/alchemist.vim' " Elixir integration
 endif
 
 " ========================================================================
