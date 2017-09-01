@@ -9,10 +9,10 @@ Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
+Plug 'neomake/neomake'
 
 Plug 'artur-shaik/vim-javacomplete2'
 
-" Elixir
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 
@@ -77,11 +77,7 @@ endif
 syntax enable
 set background=dark
 
-if has('gui_running')
-  colorscheme solarized
-else
-  colorscheme solarized
-endif
+colorscheme gruvbox
 
 " ========================================================================
 "                             Environments
@@ -96,7 +92,6 @@ endif
 " if exists('elixir')
 "   echo "Starting up Elixir environment"
 " endif
-
 
 " ========================================================================
 "                          Plugin Configuration
@@ -116,7 +111,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
-let g:ctrlp_custom_ignore = '/build\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '/_build\|build\|DS_Store\|git'
 
 " TComment
 nmap <leader>c :TComment<CR>
@@ -126,7 +121,10 @@ vmap <leader>c :TCommentBlock<CR>
 nmap <leader>D :BD<CR>
 
 " Deoplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " JavaAutocomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" NeoMake
+autocmd! BufWritePost * Neomake
