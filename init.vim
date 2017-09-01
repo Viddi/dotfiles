@@ -7,6 +7,7 @@ Plug 'kien/ctrlp.vim' " Look up files in the current tree
 Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
+Plug 'majutsushi/tagbar'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
 Plug 'neomake/neomake'
@@ -128,3 +129,24 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " NeoMake
 autocmd! BufWritePost * Neomake
+
+" TagBar
+nmap <C-j> :TagbarToggle<CR>
+
+let g:tagbar_type_elixir = {
+      \ 'ctagstype' : 'elixir',
+      \ 'kinds' : [
+      \ 'f:functions',
+      \ 'functions:functions',
+      \ 'c:callbacks',
+      \ 'd:delegates',
+      \ 'e:exceptions',
+      \ 'i:implementations',
+      \ 'a:macros',
+      \ 'o:operators',
+      \ 'm:modules',
+      \ 'p:protocols',
+      \ 'r:records',
+      \ 't:tests'
+      \ ]
+      \ }
