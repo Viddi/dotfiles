@@ -1,21 +1,36 @@
 call plug#begin('~/.local/share/nvmim/plugged')
 
-Plug 'DonnieWest/VimStudio'
+Plug 'ervandew/supertab' " Tab for autocompletion while in insert mode
 Plug 'scrooloose/nerdtree' " Show project structure
-Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 Plug 'kien/ctrlp.vim' " Look up files in the current tree
+Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
+
+" Airline
+Plug 'vim-airline/vim-airline' " Status bar at the bottom
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline' " Display open buffers on the status bar
+Plug 'edkolev/tmuxline.vim'
+
+" Tags
 Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc' " easy-tags dependency
 
+" Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
-Plug 'neomake/neomake'
-
+Plug 'neomake/neomake' " deoplete dependency
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'udalov/kotlin-vim'
 
+" Elixir
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
+
+" Android
+Plug 'DonnieWest/VimStudio'
 
 call plug#end()
 
@@ -113,6 +128,13 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = '/_build\|build\|DS_Store\|git'
+
+" Search and jump to tags
+nmap <leader>j <esc>:CtrlPTag<CR>
+
+" Airline
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#tmuxline#enabled = 0
 
 " TComment
 nmap <leader>c :TComment<CR>
