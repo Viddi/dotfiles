@@ -16,8 +16,7 @@ Plug 'edkolev/tmuxline.vim'
 
 " Tags
 Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc' " easy-tags dependency
+Plug 'ludovicchabant/vim-gutentags'
 
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
@@ -28,6 +27,8 @@ Plug 'udalov/kotlin-vim'
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
+" Plug 'thinca/vim-ref'
+" Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
 " Android
 Plug 'DonnieWest/VimStudio'
@@ -127,10 +128,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
-let g:ctrlp_custom_ignore = '/_build\|build\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '/doc\|/_build\|build\|DS_Store\|git' " TODO: Set up custom environment ignore
 
 " Search and jump to tags
-nmap <leader>j <esc>:CtrlPTag<CR>
+nmap <leader>f <esc>:CtrlPTag<CR>
 
 " Airline
 let g:airline_theme = 'bubblegum'
@@ -151,6 +152,13 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " NeoMake
 autocmd! BufWritePost * Neomake
+
+" Alchemist
+let g:alchemist_tag_disable = 1
+
+" Elixir nvim
+" let g:elixir_showerror = 1
+" let g:elixir_autobuild = 1
 
 " TagBar
 nmap <C-j> :TagbarToggle<CR>
