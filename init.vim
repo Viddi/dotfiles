@@ -83,6 +83,9 @@ map Q @q
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+" Gradle files as Groovy
+au BufNewFile,BufRead *.gradle setf groovy
+
 " ========================================================================
 "                           Themes & colors
 " ========================================================================
