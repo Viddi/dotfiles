@@ -56,7 +56,7 @@ source /home/viddi/.linuxbrew/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
-export PATH="$HOME/.linuxbrew/bin:$PATH:$HOME/.linuxbrew/sbin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:"
+export PATH="$HOME/.linuxbrew/bin:$PATH:$HOME/.linuxbrew/sbin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Library/Android/sdk/platform-tools"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -113,6 +113,6 @@ alias tks="tmux kill-session -t"
 alias xclip="xclip -selection c"
 
 # Aliases for vim
-alias vimnp="vim --noplugin"
-alias vima="vim --cmd \"let android=1\""
-alias vime="vim --cmd \"let elixir=1\""
+alias vimnp="nvim --noplugin"
+alias vima="nvim --cmd \"let android=1\""
+alias vime="nvim --cmd \"let elixir=1\""

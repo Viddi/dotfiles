@@ -152,6 +152,7 @@ let g:deoplete#enable_at_startup = 1
 
 " JavaAutocomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_GradleExecutable = './gradlew'
 
 " NeoMake
 autocmd! BufWritePost * Neomake
