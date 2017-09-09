@@ -7,6 +7,7 @@ Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
+Plug 'airblade/vim-rooter'
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -16,7 +17,7 @@ Plug 'edkolev/tmuxline.vim'
 
 " Tags
 Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
@@ -150,6 +151,9 @@ nmap <leader>D :BD<CR>
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" Vim-Rooter
+let g:rooter_silent_chdir = 1
+
 " JavaAutocomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_GradleExecutable = './gradlew'
@@ -182,5 +186,22 @@ let g:tagbar_type_elixir = {
       \ 'p:protocols',
       \ 'r:records',
       \ 't:tests'
+      \ ]
+      \ }
+
+let g:tagbar_type_kotlin = {
+      \ 'ctagstype' : 'kotlin',
+      \ 'kinds' : [
+      \ 'o:objects',
+      \ 'c:classes',
+      \ 'd:data classes',
+      \ 'i:interfaces',
+      \ 'T:types',
+      \ 'f:functions',
+      \ 'e:extensions',
+      \ 'C:constants',
+      \ 'p:properties',
+      \ 'P:packages',
+      \ 'I:imports',
       \ ]
       \ }

@@ -11,3 +11,17 @@
 --regex-Elixir=/^[ \t]*defprotocol[ \t]+([A-Z][a-zA-Z0-9_]*\.)*([A-Z][a-zA-Z0-9_?!]*)/\2/p,protocols,protocols (defprotocol...)/
 --regex-Elixir=/^[ \t]*Record\.defrecord[ \t]+:([a-zA-Z0-9_]+)/\1/r,records,records (defrecord...)/
 --regex-Elixir=/^[ \t]*test[ \t]+\"([a-z_][a-zA-Z0-9_?! ]*)\"*/\1/t,tests,tests (test ...)/
+
+--langdef=Kotlin
+--langmap=kotlin:.kt
+--langmap=kotlin:.kts
+--regex-Kotlin=/^[ \t]*((public|internal|private|sealed)?[ \t]*)*(sealed)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\4/c,classes/
+--regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*object[ \t]+([a-zA-Z0-9_]+)/\4/o,objects/
+--regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*data class[ \t]+([a-zA-Z0-9_]+)/\4/d,data classes/
+--regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*interface[ \t]+([a-zA-Z0-9_]+)/\4/i,interfaces/
+--regex-Kotlin=/^[ \t]*type[ \t]+([a-zA-Z0-9_]+)/\1/T,types/
+--regex-Kotlin=/^[ \t]*((abstract|final|sealed|implicit|lazy|private[^ ]*(\[[a-z]*\])*|protected)[ \t]*)*fun[ \t]+([a-zA-Z0-9_]+)/\4/f,functions/
+--regex-Kotlin=/^[ \t]*((public|internal|private)[ \t]*)const val[ \t]+([A-Z0-9_]+)/\3/C,constants/
+--regex-Kotlin=/^[ \t]*((public|internal|private)[ \t]*)(val|var)?[ \t]+([A-Z0-9_]+)/\3/p,properties/
+--regex-Kotlin=/^[ \t]*package[ \t]+([a-zA-Z0-9_.]+)/\1/P,packages/
+--regex-Kotlin=/^[ \t]*import[ \t]+([a-zA-Z0-9_.]+)/\1/I,imports/
