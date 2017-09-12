@@ -8,6 +8,7 @@ Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
 Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-gitgutter' " Show git diff signs
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -196,11 +197,11 @@ let g:tagbar_type_kotlin = {
       \ 'c:classes',
       \ 'd:data classes',
       \ 'i:interfaces',
-      \ 'T:types',
-      \ 'f:functions',
-      \ 'e:extensions',
+      \ 't:typealiases',
       \ 'C:constants',
       \ 'p:properties',
+      \ 'f:functions',
+      \ 'e:extensions',
       \ 'P:packages',
       \ 'I:imports',
       \ ]
