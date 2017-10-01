@@ -14,7 +14,7 @@
 
 --langdef=Kotlin
 --langmap=kotlin:.kt.kts
---regex-Kotlin=/^[ \t]*((public|internal|private|sealed)?[ \t]*)*(sealed)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\4/c,classes/
+--regex-Kotlin=/^[ \t]*((public|internal|private|sealed)?[ \t]*)*(sealed)?(open)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\4/c,classes/
 --regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*object[ \t]+([a-zA-Z0-9_]+)/\3/o,objects/
 --regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*data class[ \t]+([a-zA-Z0-9_]+)/\4/d,data classes/
 --regex-Kotlin=/^[ \t]*((public|internal|private)?[ \t]*)*[ \t]*interface[ \t]+([a-zA-Z0-9_]+)/\4/i,interfaces/

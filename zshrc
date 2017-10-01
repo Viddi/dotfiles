@@ -116,3 +116,5 @@ alias xclip="xclip -selection c"
 alias vimnp="nvim --noplugin"
 alias vima="nvim --cmd \"let android=1\""
 alias vime="nvim --cmd \"let elixir=1\""
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
