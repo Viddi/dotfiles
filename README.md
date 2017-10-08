@@ -1,18 +1,21 @@
-# Viddi's dot files
-
-Just some stuff tailored for myself.
-
 ## Installation
 
-### Powerline fonts
-
-```
-git clone https://github.com/powerline/fonts.git
-cd fonts
-./install.sh
-```
+* `ln -s $HOME/Development/dotfiles/gitconfig $HOME/.gitconfig`
+* `ln -s $HOME/Development/dotfiles/gitignore_global $HOME/.gitignore_global`
+* `ln -s $HOME/Development/dotfiles/vimrc $HOME/.vimrc`
+* `ln -s $HOME/Development/dotfiles/zshrc $HOME/.zshrc`
+* `ln -s $HOME/Development/dotfiles/tmux.conf $HOME/.tmux.conf`
+* `ln -s $HOME/Development/dotfiles/init.vim $HOME/.config/nvim/init.vim`
+* `ln -s $HOME/Development/dotfiles/config $HOME/.config/terminator/config`
 
 ### NeoVim
+
+* Vim-Plug
+
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 * `brew install python3`
 * `pip2 install neovim --upgrade`
