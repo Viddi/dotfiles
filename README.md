@@ -1,5 +1,7 @@
 ## Installation
 
+### Symlinks
+
 * `ln -s $HOME/Development/dotfiles/gitconfig $HOME/.gitconfig`
 * `ln -s $HOME/Development/dotfiles/gitignore_global $HOME/.gitignore_global`
 * `ln -s $HOME/Development/dotfiles/vimrc $HOME/.vimrc`
@@ -28,3 +30,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 * Universal ctags
   * `brew tap universal-ctags/universal-ctags`
   * `brew install --HEAD universal-ctags`
+
+### Other
+
+* Tmux Plugin Manager
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
