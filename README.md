@@ -6,7 +6,10 @@
 * `ln -s $HOME/Development/dotfiles/zshrc $HOME/.zshrc`
 * `ln -s $HOME/Development/dotfiles/tmux.conf $HOME/.tmux.conf`
 * `ln -s $HOME/Development/dotfiles/init.vim $HOME/.config/nvim/init.vim`
-* `ln -s $HOME/Development/dotfiles/config $HOME/.config/terminator/config`
+
+* Linux Only
+  * `ln -s $HOME/Development/dotfiles/config $HOME/.config/terminator/config`
+  * `ln -s $HOME/Development/dotfiles/redshift.conf $HOME/.config/redshift.conf`
 
 ### NeoVim
 
