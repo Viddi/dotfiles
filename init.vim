@@ -9,6 +9,7 @@ Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
 Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter' " Show git diff signs
+Plug 'kien/rainbow_parentheses.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -119,6 +120,9 @@ colorscheme gruvbox
 "                          Plugin Configuration
 " ========================================================================
 
+" SuperTab
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
 
@@ -171,6 +175,12 @@ let g:alchemist_tag_disable = 1
 
 " TagBar
 nmap <C-j> :TagbarToggle<CR>
+
+" Rainbow Parentheses always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',

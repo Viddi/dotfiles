@@ -117,4 +117,6 @@ alias vimnp="nvim --noplugin"
 alias vima="nvim --cmd \"let android=1\""
 alias vime="nvim --cmd \"let elixir=1\""
 
+# Autogen
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export XDG_DATA_DIRS="/home/viddi/.linuxbrew/share:$XDG_DATA_DIRS"
