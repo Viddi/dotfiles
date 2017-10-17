@@ -7,7 +7,7 @@ Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
-Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-rooter' " Automatically changes working directory to project root
 Plug 'airblade/vim-gitgutter' " Show git diff signs
 Plug 'kien/rainbow_parentheses.vim'
 
@@ -30,6 +30,8 @@ Plug 'udalov/kotlin-vim'
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
+Plug 'mattreduce/vim-mix'
+Plug 'tpope/vim-endwise'
 " Plug 'thinca/vim-ref'
 " Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
