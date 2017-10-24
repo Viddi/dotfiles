@@ -2,7 +2,6 @@ call plug#begin('~/.local/share/nvmim/plugged')
 
 Plug 'ervandew/supertab' " Tab for autocompletion while in insert mode
 Plug 'scrooloose/nerdtree' " Show project structure
-Plug 'kien/ctrlp.vim' " Look up files in the current tree
 Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 Plug 'tomtom/tcomment_vim' " Better support for commenting code
 Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
@@ -10,6 +9,9 @@ Plug 'flazz/vim-colorschemes' " More colors
 Plug 'airblade/vim-rooter' " Automatically changes working directory to project root
 Plug 'airblade/vim-gitgutter' " Show git diff signs
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -65,6 +67,8 @@ autocmd BufEnter * silent! lcd %:p:h " Set working directory to file being opene
 let mapleader = ','
 
 map <leader>q :noh<CR>
+
+nmap <leader>x :cclose<CR>
 
 " Save with cltr+s in normal and insert mode
 map <C-s> <esc>:w<CR>
@@ -136,13 +140,26 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " CtrlP
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files = 0
-let g:ctrlp_custom_ignore = '/doc\|/_build\|build\|DS_Store\|git' " TODO: Set up custom environment ignore
+" let g:ctrlp_map = '<leader>t'
+" let g:ctrlp_show_hidden = 1
+" let g:ctrlp_max_files = 0
+" let g:ctrlp_custom_ignore = '/doc\|/_build\|build\|DS_Store\|git' " TODO: Set up custom environment ignore
 
 " Search and jump to tags
-nmap <leader>f <esc>:CtrlPTag<CR>
+" nmap <leader>f <esc>:CtrlPTag<CR>
+
+" fzf
+nmap <leader>b :Buffers<CR>
+nmap <leader>t :Files<CR>
+nmap <leader>f :Tags<CR>
+
+" Ack
+cnoreabbrev Ack Ack!
+nnoremap <leader>a :Ack!<Space>
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Airline
 let g:airline_theme = 'bubblegum'
@@ -164,6 +181,8 @@ let g:rooter_silent_chdir = 1
 " JavaAutocomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_GradleExecutable = './gradlew'
+let g:JavaComplete_ClosingBrace = 0
+let g:JavaComplete_LibsPath = '~/.gradle/caches/modules-2/files-2.1'
 
 " NeoMake
 autocmd! BufWritePost * Neomake
