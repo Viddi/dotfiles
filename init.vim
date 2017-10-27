@@ -26,7 +26,6 @@ Plug 'majutsushi/tagbar'
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
 Plug 'neomake/neomake' " deoplete dependency
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'udalov/kotlin-vim'
 
 " Elixir
@@ -177,12 +176,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Vim-Rooter
 let g:rooter_silent_chdir = 1
-
-" JavaAutocomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-let g:JavaComplete_GradleExecutable = './gradlew'
-let g:JavaComplete_ClosingBrace = 0
-let g:JavaComplete_LibsPath = '~/.gradle/caches/modules-2/files-2.1'
 
 " NeoMake
 autocmd! BufWritePost * Neomake
