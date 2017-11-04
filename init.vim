@@ -36,9 +36,6 @@ Plug 'tpope/vim-endwise'
 " Plug 'thinca/vim-ref'
 " Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
-" Android
-Plug 'DonnieWest/VimStudio'
-
 call plug#end()
 
 " ========================================================================
@@ -155,6 +152,7 @@ nmap <leader>f :Tags<CR>
 " Ack
 cnoreabbrev Ack Ack!
 nnoremap <leader>a :Ack!<Space>
+nmap <C-i> :Ack! "\b<cword>\b" <CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
