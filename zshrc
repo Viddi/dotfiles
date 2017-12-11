@@ -52,7 +52,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
-source /home/viddi/.linuxbrew/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
@@ -115,6 +114,8 @@ if _has fzf && _has ag; then
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
   '
 fi
+
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Aliases for ssh
 alias ssh-viddi="ssh root@162.243.248.182"
