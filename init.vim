@@ -12,6 +12,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'romgrk/winteract.vim' " Window management
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -102,6 +104,9 @@ endif
 syntax enable
 set background=dark
 
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'soft'
 colorscheme gruvbox
 
 " ========================================================================
@@ -144,6 +149,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Search and jump to tags
 " nmap <leader>f <esc>:CtrlPTag<CR>
 
+" Winteract
+nmap <leader>w :InteractiveWindow<CR>
+
 " fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>t :Files<CR>
@@ -180,6 +188,9 @@ autocmd! BufWritePost * Neomake
 
 " Alchemist
 let g:alchemist_tag_disable = 1
+
+nmap <leader>B :Mcompile<CR>
+nmap <leader>T :Mtest<CR>
 
 " Elixir nvim
 " let g:elixir_showerror = 1

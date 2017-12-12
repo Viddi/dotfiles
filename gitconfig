@@ -3,7 +3,7 @@
   email = vidaringi0217@gmail.com
 [core]
   excludesfile = /Users/Viddi/.gitignore_global
-  editor = /usr/local/bin/nvim
+  editor = /usr/bin/nvim
 [color]
   ui = auto
 [color "branch"]
