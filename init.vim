@@ -30,6 +30,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completi
 Plug 'neomake/neomake' " deoplete dependency
 Plug 'udalov/kotlin-vim'
 
+" Erlang
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'vim-erlang/vim-erlang-tags'
+
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
