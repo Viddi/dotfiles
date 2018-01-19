@@ -138,6 +138,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
 
+let NERDTreeShowHidden = 1
+
 " Close vim if NERDTree is ithe only window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
