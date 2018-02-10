@@ -3,13 +3,13 @@
   suppress_multiple_term_dialog = True
   title_hide_sizetext = True
 [keybindings]
-  close_term = <Alt>w
-  copy = <Alt>c
+  close_term = <Primary><Shift>w
+  copy = <Primary><Shift>c
   cycle_next = <Alt>grave
   edit_window_title = <Alt>e
-  new_tab = <Alt>t
+  new_tab = <Primary><Shift>t
   next_tab = <Alt>n
-  paste = <Alt>v
+  paste = <Primary><Shift>v
   prev_tab = <Alt>p
 [layouts]
   [[default]]
