@@ -109,10 +109,11 @@ endif
 syntax enable
 set background=dark
 
-let g:gruvbox_bold = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'soft'
-colorscheme gruvbox
+" let g:gruvbox_bold = 1
+" let g:gruvbox_italic = 1
+" let g:gruvbox_contrast_dark = 'soft'
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " ========================================================================
 "                             Environments
