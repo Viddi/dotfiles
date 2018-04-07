@@ -203,20 +203,3 @@ let g:tagbar_type_elixir = {
       \ 't:tests'
       \ ]
       \ }
-
-let g:tagbar_type_kotlin = {
-      \ 'ctagstype' : 'kotlin',
-      \ 'kinds' : [
-      \ 'o:objects',
-      \ 'c:classes',
-      \ 'd:data classes',
-      \ 'i:interfaces',
-      \ 't:typealiases',
-      \ 'C:constants',
-      \ 'p:properties',
-      \ 'f:functions',
-      \ 'e:extensions',
-      \ 'P:packages',
-      \ 'I:imports',
-      \ ]
-      \ }

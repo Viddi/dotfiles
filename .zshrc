@@ -118,8 +118,9 @@ fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
-# Aliases for ssh
-alias ssh-viddi="ssh root@162.243.248.182"
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
 
 # Aliases for git
 alias gs="git status"
