@@ -102,7 +102,7 @@ endif
 syntax enable
 set background=dark
 
-colorscheme solarized
+colorscheme dracula
 
 " ========================================================================
 "                          Plugin Configuration
@@ -150,8 +150,7 @@ if executable('ag')
 endif
 
 " Airline
-let g:airline_solarized_bg='dark'
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'deus'
 let g:airline#extensions#tmuxline#enabled = 0
 
 " TComment
@@ -161,9 +160,6 @@ vmap <leader>c :TCommentBlock<CR>
 " Bufkill
 nmap <leader>D :BD<CR>
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
 " Vim-Rooter
 let g:rooter_silent_chdir = 1
 
@@ -172,10 +168,6 @@ let g:alchemist_tag_disable = 1
 
 nmap <leader>B :Mcompile<CR>
 nmap <leader>T :Mtest<CR>
-
-" Elixir nvim
-" let g:elixir_showerror = 1
-" let g:elixir_autobuild = 1
 
 " TagBar
 nmap <C-j> :TagbarToggle<CR>

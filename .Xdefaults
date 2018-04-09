@@ -1,0 +1,51 @@
+! Dracula color scheme
+URxvt.foreground: #F8F8F2
+URxvt.background: #282A36
+!!URxvt.background: [80]#282A36
+
+!! black
+URxvt.color0: #000000
+URxvt.color8: #44475A
+!! red
+URxvt.color1: #FF5555
+URxvt.color9: #FFB86C
+!! green
+URxvt.color2: #50FA7B
+URxvt.color10: #50FA7B
+!! yellow
+URxvt.color3: #E6DB74
+URxvt.color11: #F1FA8C
+!! blue
+URxvt.color4: #6272A4
+URxvt.color12: #6272A4
+!! magenta
+URxvt.color5: #BD93F9
+URxvt.color13: #FF79C6
+!! cyan
+URxvt.color6: #8BE9FD
+URxvt.color14: #66D9EF
+!! white
+URxvt.color7: #666666
+URxvt.color15: #FFFFFF
+
+URxvt.intensityStyles: false
+URxvt.depth: 32
+URxvt.font: xft:monospace:size=11
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! extensions
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.colorUL: #FF79C6
+!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: webview
+URxvt.url-select.underline: true
+!! resize-font
+URxvt.resize-font.smaller: Control--
+URxvt.resize-font.bigger:	Control-+
+!! keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! matcher
+URxvt.url-launcher: webview
+URxvt.matcher.button: 1

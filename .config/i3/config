@@ -3,7 +3,7 @@ for_window [class="^.*"] border pixel 3
 gaps inner 20
 gaps outer 20
 set $mod Mod1
-set $term --no-startup-id terminator
+set $term --no-startup-id urxvt
 font pango:DejaVu Sans 12
 
 # External
@@ -11,7 +11,7 @@ exec_always --no-startup-id feh --bg-fill ~/Development/dotfiles/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id redshift
 exec_always --no-startup-id setxkbmap -option ctrl:swapcaps # keymap
-exec --no-startup-id compton --xrender-sync-fence # composite manager
+# exec --no-startup-id compton --xrender-sync-fence # composite manager
 
 # Pulse Audio  controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
@@ -27,7 +27,7 @@ bindsym $mod+Shift+t gaps inner current set 20; gaps outer current set 20
 # bindsym $mod+y exec $term -e calcurse
 bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
 
-# bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+bindsym $mod+u move position center
 bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
 
 # process monitor
@@ -83,10 +83,10 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle split; 
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle; resize set 1400 1000; move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
