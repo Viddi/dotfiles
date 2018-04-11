@@ -55,9 +55,7 @@ source /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
 
-export PATH="$HOME/.linuxbrew/bin:$PATH:$HOME/.linuxbrew/sbin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Library/Android/sdk/platform-tools"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 

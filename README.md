@@ -1,3 +1,3 @@
 ## Installation
 
-# TODO
+![screenshot](screenshot.png)

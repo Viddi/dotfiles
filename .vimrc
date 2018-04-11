@@ -8,12 +8,15 @@ Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 Plug 'flazz/vim-colorschemes' " More colors
 Plug 'airblade/vim-rooter' " Automatically changes working directory to project root
 Plug 'airblade/vim-gitgutter' " Show git diff signs
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'romgrk/winteract.vim' " Window management
+Plug 'tpope/vim-endwise'
+
+" Auto completion
+Plug 'Valloric/YouCompleteMe'
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -34,7 +37,6 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'mattreduce/vim-mix'
-Plug 'tpope/vim-endwise'
 
 call plug#end()
 
@@ -123,15 +125,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" CtrlP
-" let g:ctrlp_map = '<leader>t'
-" let g:ctrlp_show_hidden = 1
-" let g:ctrlp_max_files = 0
-" let g:ctrlp_custom_ignore = '/doc\|/_build\|build\|DS_Store\|git' " TODO: Set up custom environment ignore
-
-" Search and jump to tags
-" nmap <leader>f <esc>:CtrlPTag<CR>
-
 " Winteract
 nmap <leader>w :InteractiveWindow<CR>
 
@@ -171,12 +164,6 @@ nmap <leader>T :Mtest<CR>
 
 " TagBar
 nmap <C-j> :TagbarToggle<CR>
-
-" Rainbow Parentheses always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',
