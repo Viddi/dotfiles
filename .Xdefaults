@@ -32,20 +32,21 @@ URxvt.intensityStyles: false
 URxvt.depth: 32
 URxvt.font: xft:monospace:size=11
 URxvt.scrollBar: false
-URxvt.cursorColor: white
+URxvt.cursorColor: #50FA7B
+
+!! jump between words
+URxvt.keysym.Control-h: \033[1;5D
+URxvt.keysym.Control-l: \033[1;5C
 
 !! extensions
-URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.perl-ext-common: default,url-select,matcher,keyboard-select
 URxvt.colorUL: #FF79C6
 !! url-select
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-[: perl:url-select:select_next
 URxvt.url-select.launcher: webview
 URxvt.url-select.underline: true
-!! resize-font
-URxvt.resize-font.smaller: Control--
-URxvt.resize-font.bigger:	Control-+
 !! keyboard-select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-p: perl:keyboard-select:activate
 !! matcher
 URxvt.url-launcher: webview
 URxvt.matcher.button: 1

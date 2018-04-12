@@ -1,3 +1,3 @@
-## Installation
+## Screenshot
 
 ![screenshot](screenshot.png)
