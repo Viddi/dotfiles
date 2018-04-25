@@ -40,8 +40,6 @@ Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'mattreduce/vim-mix'
 Plug 'tpope/vim-endwise'
-" Plug 'thinca/vim-ref'
-" Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
 call plug#end()
 
@@ -112,22 +110,7 @@ set background=dark
 " let g:gruvbox_bold = 1
 " let g:gruvbox_italic = 1
 " let g:gruvbox_contrast_dark = 'soft'
-let g:solarized_termcolors=256
-colorscheme solarized
-
-" ========================================================================
-"                             Environments
-" ========================================================================
-
-" if exists('android')
-"   echo "Starting up Android environment"
-"
-"   Plug 'DonnieWest/VimStudio'
-" endif
-"
-" if exists('elixir')
-"   echo "Starting up Elixir environment"
-" endif
+colorscheme dracula
 
 " ========================================================================
 "                          Plugin Configuration
@@ -163,19 +146,37 @@ nmap <leader>w :InteractiveWindow<CR>
 " fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>t :Files<CR>
-nmap <leader>f :Tags<CR>
+" search tags in current buffer
+nmap <leader>f :BTags<CR>
+" search tags in project
+nmap <leader>F :Tags<CR>
+
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Ack
 cnoreabbrev Ack Ack!
 nnoremap <leader>a :Ack!<Space>
-nmap <C-i> :Ack! "\b<cword>\b" <CR>
+nmap <C-i> :Ack!<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
 " Airline
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'deus'
 let g:airline#extensions#tmuxline#enabled = 0
 
 " TComment
@@ -199,10 +200,6 @@ let g:alchemist_tag_disable = 1
 
 nmap <leader>B :Mcompile<CR>
 nmap <leader>T :Mtest<CR>
-
-" Elixir nvim
-" let g:elixir_showerror = 1
-" let g:elixir_autobuild = 1
 
 " TagBar
 nmap <C-j> :TagbarToggle<CR>

@@ -131,12 +131,30 @@ nmap <leader>w :InteractiveWindow<CR>
 " fzf
 nmap <leader>b :Buffers<CR>
 nmap <leader>t :Files<CR>
-nmap <leader>f :Tags<CR>
+" search tags in current buffer
+nmap <leader>f :BTags<CR>
+" search tags in project
+nmap <leader>F :Tags<CR>
+
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Ack
 cnoreabbrev Ack Ack!
 nnoremap <leader>a :Ack!<Space>
-nmap <C-i> :Ack! "\b<cword>\b" <CR>
+nmap <C-i> :Ack!<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
