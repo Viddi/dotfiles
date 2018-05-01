@@ -68,7 +68,7 @@ modules-right = memory cpu temperature filesystem volume xkeyboard powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-override-redirect = true
+; override-redirect = true
 
 [module/xwindow]
 type = internal/xwindow
