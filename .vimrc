@@ -59,6 +59,7 @@ set incsearch " Highlight search
 set ignorecase
 set smartcase
 set hlsearch
+set hidden
 
 autocmd BufEnter * silent! lcd %:p:h " Set working directory to file being opened
 
@@ -181,7 +182,7 @@ nmap <leader>B :Mcompile<CR>
 nmap <leader>T :Mtest<CR>
 
 " TagBar
-nmap <C-j> :TagbarToggle<CR>
+nmap <C-m> :TagbarToggle<CR>
 
 let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',
