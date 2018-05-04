@@ -13,7 +13,7 @@ exec_always --no-startup-id feh --bg-fill ~/Development/dotfiles/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id setxkbmap -option ctrl:swapcaps # keymap
 exec --no-startup-id tmux new-session -s weechat -d 'weechat'
-exec --no-startup-id compton --xrender-sync-fence # composite manager
+# exec --no-startup-id compton --xrender-sync-fence # composite manager
 exec --no-startup-id redshift
 
 # Pulse Audio  controls

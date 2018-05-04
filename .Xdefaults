@@ -42,7 +42,7 @@ URxvt.keysym.Control-h: \033[1;5D
 URxvt.keysym.Control-l: \033[1;5C
 
 !! extensions
-URxvt.perl-ext-common: default,url-select,matcher,keyboard-select
+URxvt.perl-ext-common: default,url-select,matcher,keyboard-select,selection-to-clipboard
 URxvt.colorUL: #FF79C6
 !! url-select
 URxvt.keysym.M-[: perl:url-select:select_next
