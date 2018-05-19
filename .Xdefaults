@@ -1,6 +1,6 @@
 ! Dracula color scheme
 URxvt.foreground: #F8F8F2
-URxvt.background: [80]#282A36
+URxvt.background: [85]#282A36
 
 !! black
 URxvt.color0: #000000
@@ -29,7 +29,7 @@ URxvt.color15: #FFFFFF
 
 URxvt.intensityStyles: false
 URxvt.depth: 32
-URxvt.font: xft:monospace:size=11
+URxvt.font: xft:monospace:size=9
 URxvt.scrollBar: false
 URxvt.cursorColor: #50FA7B
 
