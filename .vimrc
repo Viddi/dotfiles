@@ -14,6 +14,7 @@ Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'romgrk/winteract.vim' " Window management
 Plug 'tpope/vim-endwise'
+Plug 'sheerun/vim-polyglot'
 
 " Auto completion
 Plug 'Valloric/YouCompleteMe'
@@ -29,12 +30,10 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Erlang
-Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'mattreduce/vim-mix'
 

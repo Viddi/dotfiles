@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'romgrk/winteract.vim' " Window management
+Plug 'sheerun/vim-polyglot'
 
 " Airline
 Plug 'vim-airline/vim-airline' " Status bar at the bottom
@@ -31,12 +32,10 @@ Plug 'neomake/neomake' " deoplete dependency
 Plug 'udalov/kotlin-vim'
 
 " Erlang
-Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir' " Vim configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'mattreduce/vim-mix'
 Plug 'tpope/vim-endwise'
