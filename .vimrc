@@ -20,8 +20,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 
 " Airline
-Plug 'vim-airline/vim-airline' " Status bar at the bottom
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline' " Status bar at the bottom
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline' " Display open buffers on the status bar
 Plug 'edkolev/tmuxline.vim'
 

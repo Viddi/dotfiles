@@ -8,14 +8,18 @@ font pango:mono 9
 # smart_gaps on
 # smart_borders on
 
-# External
 exec_always --no-startup-id feh --bg-fill ~/Development/dotfiles/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id setxkbmap -option ctrl:swapcaps # keymap
+# keymap
+exec --no-startup-id setxkbmap -option ctrl:swapcaps
 exec --no-startup-id tmux new-session -s weechat -d 'weechat'
-exec --no-startup-id compton --xrender-sync # composite manager
-exec --no-startup-id redshift # Reduce bluelight
-exec --no-startup-id unclutter # Hide mouse after a few seconds
+# composite manager
+exec --no-startup-id compton --xrender-sync
+# reduce bluelight
+exec --no-startup-id redshift
+# hide mouse after a few seconds
+exec --no-startup-id unclutter
+# exec --no-startup-id mpd # Music
 
 # Pulse Audio  controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%

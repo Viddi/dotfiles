@@ -25,10 +25,10 @@ dracula = {
     'background': '#282a36',
     'background-light': '#40424f',
     'background-dark': '#1b1d24',
+    'hints': '#80282a36',
     'white': '#ffffff',
     'black': '#000000',
     'yellow': '#e7db74',
-    'orange': '#cb4b16',
     'red': '#dc322f',
     'magenta': '#ff79c6',
     'violet': '#bd93f9',
@@ -40,7 +40,7 @@ dracula = {
 ## Background color for webpages if unset (or empty to use the theme's
 ## color)
 ## Type: QtColor
-c.colors.webpage.bg = dracula['background']
+# c.colors.webpage.bg = dracula['background']
 
 ## Background color of the completion widget category headers.
 ## Type: QssColor
@@ -147,7 +147,7 @@ c.colors.downloads.start.fg = dracula['white']
 ## Background color for hints. Note that you can use a `rgba(...)` value
 ## for transparency.
 ## Type: QssColor
-c.colors.hints.bg = dracula['background-light']
+c.colors.hints.bg = dracula['hints']
 
 ## Font color for hints.
 ## Type: QssColor
@@ -199,11 +199,11 @@ c.colors.messages.warning.bg = dracula['background']
 
 ## Border color of a warning message.
 ## Type: QssColor
-c.colors.messages.warning.border = dracula['orange']
+c.colors.messages.warning.border = dracula['magenta']
 
 ## Foreground color a warning message.
 ## Type: QssColor
-c.colors.messages.warning.fg = dracula['orange']
+c.colors.messages.warning.fg = dracula['magenta']
 
 ## Background color for prompts.
 ## Type: QssColor
@@ -337,7 +337,7 @@ c.colors.tabs.indicator.start = dracula['violet']
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-c.colors.tabs.indicator.stop = dracula['orange']
+c.colors.tabs.indicator.stop = dracula['green']
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -726,39 +726,39 @@ c.editor.command = ['urxvt', '-e', 'nvim', '{}']
 
 ## Font used in the completion categories.
 ## Type: Font
-c.fonts.completion.category = 'bold 12pt monospace'
+c.fonts.completion.category = 'bold 9pt monospace'
 
 ## Font used in the completion widget.
 ## Type: Font
-c.fonts.completion.entry = '12pt monospace'
+c.fonts.completion.entry = '9pt monospace'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-c.fonts.debug_console = '12pt monospace'
+c.fonts.debug_console = '9pt monospace'
 
 ## Font used for the downloadbar.
 ## Type: Font
-c.fonts.downloads = '12pt monospace'
+c.fonts.downloads = '9pt monospace'
 
 ## Font used for the hints.
 ## Type: Font
-c.fonts.hints = 'bold 14pt monospace'
+c.fonts.hints = '9pt monospace'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-c.fonts.keyhint = '12pt monospace'
+c.fonts.keyhint = '9pt monospace'
 
 ## Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '12pt monospace'
+c.fonts.messages.error = '9pt monospace'
 
 ## Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '12pt monospace'
+c.fonts.messages.info = '9pt monospace'
 
 ## Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '12pt monospace'
+c.fonts.messages.warning = '9pt monospace'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -767,15 +767,15 @@ c.fonts.monospace = 'Consolas'
 
 ## Font used for prompts.
 ## Type: Font
-c.fonts.prompts = '12pt sans-serif'
+c.fonts.prompts = '9pt sans-serif'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '12pt monospace'
+c.fonts.statusbar = '9pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '12pt monospace'
+c.fonts.tabs = '9pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -834,7 +834,7 @@ c.fonts.web.family.standard = 'Noto Sans'
 
 ## CSS border value for hints.
 ## Type: String
-c.hints.border = '2px solid ' + dracula['cyan']
+c.hints.border = '1px solid ' + dracula['cyan']
 
 ## Chars used for hint strings.
 ## Type: UniqueCharString
