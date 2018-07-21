@@ -29,7 +29,7 @@ URxvt.color15: #FFFFFF
 
 URxvt.intensityStyles: false
 URxvt.depth: 32
-URxvt.font: xft:monospace:size=9
+URxvt.font: xft:DejaVu Sans Mono:size=12
 URxvt.scrollBar: false
 URxvt.cursorColor: #50FA7B
 

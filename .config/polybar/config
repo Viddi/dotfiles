@@ -58,13 +58,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "DejaVu Sans Mono:pixelsize=14:antialias=true;3"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=14"
-font-2 = "FontAwesome5Brands:style=Solid:pizelsize=14"
+font-0 = "DejaVu Sans Mono:pixelsize=16:antialias=true;3"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=16"
+font-2 = "FontAwesome5Brands:style=Solid:pizelsize=16"
 
 modules-left = i3
 modules-center = date
-modules-right = memory cpu temperature filesystem volume xkeyboard powermenu
+modules-right = wireless-network memory cpu temperature filesystem volume xkeyboard battery powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -145,6 +145,28 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/wireless-network]
+type = internal/network
+interface = wlp59s0
+
+interval = 5
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected =  %essid%
+label-connected-foreground = ${colors.yellow}
+
+label-disconnected =  disconnected
+label-disconnected-foreground = ${colors.yellow}
+
+;ramp-signal-0 = 😱
+;ramp-signal-1 = 😠
+;ramp-signal-2 = 😒
+;ramp-signal-3 = 😊
+;ramp-signal-4 = 😃
+;ramp-signal-5 = 😈
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -190,13 +212,18 @@ time-alt = %H:%M:%S
 
 ;label = %date% %time%
 label = %date% %time%
-label-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.cyan}
 
 [module/volume]
 type = internal/volume
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
 master-mixer = Master
 
-format-volume-foreground = ${colors.green}
+format-volume-foreground = ${colors.yellow}
 
 format-volume = %{T1} <label-volume>
 
@@ -225,6 +252,44 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.primary}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+label-discharging = %percentage%%
+label-charging = Charging %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <ramp-capacity> <label-charging>
+
+label-discharging-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
+ramp-capacity-foreground = ${colors.green}
 
 [module/powermenu]
 type = custom/menu
