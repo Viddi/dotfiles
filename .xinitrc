@@ -1,5 +1,6 @@
-#xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-xrandr --dpi 144
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+xrandr --output eDP-1-1 --mode 2560x1440 --rate 60
+xrandr --dpi 96
 
 exec i3

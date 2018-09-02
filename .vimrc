@@ -154,7 +154,7 @@ let g:fzf_colors =
 " Ack
 cnoreabbrev Ack Ack!
 nnoremap <leader>a :Ack!<Space>
-nmap <C-i> :Ack!<CR>
+nnoremap <C-a> :Ack!<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -181,7 +181,7 @@ nmap <leader>B :Mcompile<CR>
 nmap <leader>T :Mtest<CR>
 
 " TagBar
-nmap <C-m> :TagbarToggle<CR>
+" nmap <C-m> :TagbarToggle<CR>
 
 let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',

@@ -58,9 +58,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "DejaVu Sans Mono:pixelsize=16:antialias=true;3"
-font-1 = "FontAwesome5Free:style=Solid:pixelsize=16"
-font-2 = "FontAwesome5Brands:style=Solid:pizelsize=16"
+font-0 = "DejaVu Sans Mono:pixelsize=12:antialias=true;3"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12"
+font-2 = "FontAwesome5Brands:style=Solid:pizelsize=12"
 
 modules-left = i3
 modules-center = date

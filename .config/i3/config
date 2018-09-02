@@ -6,7 +6,7 @@ set $mod Mod1
 set $term --no-startup-id urxvt
 font pango:DejaVu Sans Mono 12
 # smart_gaps on
-# smart_borders on
+smart_borders on
 
 exec_always --no-startup-id feh --bg-fill ~/Development/dotfiles/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
