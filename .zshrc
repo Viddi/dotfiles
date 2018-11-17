@@ -120,6 +120,16 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
+# Autogen
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+stty -ixon
+
 # Aliases for git
 alias gs="git status"
 alias gcam="git commit -am"
@@ -139,18 +149,5 @@ alias tns="tmux new -s"
 alias tat="tmux a -t"
 alias tks="tmux kill-session -t"
 
-# Aliases for linux
-alias xclip="xclip -selection c"
-
-# Aliases for vim
-alias vimnp="nvim --noplugin"
-
-# Autogen
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
-stty -ixon
+alias rslstart="systemctl --user start rslsync"
+alias rslstop="systemctl --user stop rslsync"

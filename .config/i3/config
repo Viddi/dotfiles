@@ -7,6 +7,7 @@ set $term --no-startup-id urxvt
 font pango:DejaVu Sans Mono 12
 # smart_gaps on
 smart_borders on
+focus_follows_mouse no
 
 exec_always --no-startup-id feh --bg-fill ~/Development/dotfiles/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -22,12 +23,12 @@ exec --no-startup-id unclutter
 # exec --no-startup-id mpd # Music
 
 # Pulse Audio  controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # Backlight
 bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 10
@@ -173,4 +174,4 @@ floating_modifier $mod
 
 # Colors
 # class                 border  backgr. text    indicator
-client.focused          #66d9ef	#66d9ef	#2D2D2D #50fa7b
+client.focused          #66d9ef	#66d9ef	#2D2D2D #ff79c6

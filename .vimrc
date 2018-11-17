@@ -15,6 +15,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'romgrk/winteract.vim' " Window management
 Plug 'tpope/vim-endwise'
 Plug 'sheerun/vim-polyglot'
+Plug 'rafaqz/ranger.vim'
 
 " Auto completion
 Plug 'Valloric/YouCompleteMe'
@@ -125,6 +126,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" easymotion
+map  <leader>e <Plug>(easymotion-bd-w)
+nmap <leader>e <Plug>(easymotion-overwin-w)
+
 " Winteract
 nmap <leader>w :InteractiveWindow<CR>
 
@@ -177,8 +182,8 @@ let g:rooter_silent_chdir = 1
 " Alchemist
 let g:alchemist_tag_disable = 1
 
-nmap <leader>B :Mcompile<CR>
-nmap <leader>T :Mtest<CR>
+" nmap <leader>B :Mcompile<CR>
+" nmap <leader>T :Mtest<CR>
 
 " TagBar
 " nmap <C-m> :TagbarToggle<CR>
