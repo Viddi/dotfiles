@@ -149,5 +149,17 @@ alias tns="tmux new -s"
 alias tat="tmux a -t"
 alias tks="tmux kill-session -t"
 
+# Helpers
 alias rslstart="systemctl --user start rslsync"
 alias rslstop="systemctl --user stop rslsync"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias tmuxconf="vim ~/.tmux.conf"
+
+# Bluetooth functionality
+alias bton="echo -e \"power on\n\" | bluetoothctl"
+alias btoff="echo -e \"power off\n\" | bluetoothctl"
+alias btdc="echo -e \"disconnect\n\" | bluetoothctl"
+btc () {
+  echo -e "connect $*\n" | bluetoothctl
+}
