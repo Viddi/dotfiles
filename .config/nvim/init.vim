@@ -1,103 +1,66 @@
-call plug#begin('~/.local/share/nvmim/plugged')
+" ========================================================================
+"                             Plugins
+" ========================================================================
+call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'ervandew/supertab' " Tab for autocompletion while in insert mode
-Plug 'scrooloose/nerdtree' " Show project structure
-Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
-Plug 'tomtom/tcomment_vim' " Better support for commenting code
-Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
-Plug 'flazz/vim-colorschemes' " More colors
-Plug 'airblade/vim-rooter' " Automatically changes working directory to project root
-Plug 'airblade/vim-gitgutter' " Show git diff signs
-Plug 'kien/rainbow_parentheses.vim'
+" Language Server Protocol
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Fuzzy search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'romgrk/winteract.vim' " Window management
+
+" Window management
+Plug 'romgrk/winteract.vim'
 Plug 'sheerun/vim-polyglot'
 
-" Airline
-Plug 'vim-airline/vim-airline' " Status bar at the bottom
+" Status bar
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'bling/vim-bufferline' " Display open buffers on the status bar
+" Plug 'bling/vim-bufferline'
 Plug 'edkolev/tmuxline.vim'
 
-" Tags
-Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
-
-" Auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Keyword completion
-Plug 'neomake/neomake' " deoplete dependency
-Plug 'udalov/kotlin-vim'
-
-" Erlang
-Plug 'vim-erlang/vim-erlang-omnicomplete'
-Plug 'vim-erlang/vim-erlang-tags'
-
-" Elixir
-Plug 'slashmili/alchemist.vim' " Elixir integration
-Plug 'mattreduce/vim-mix'
-Plug 'tpope/vim-endwise'
+" Colorschemes
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
 " ========================================================================
 "                             Basic Configuration
 " ========================================================================
-set backspace=indent,eol,start
 set encoding=utf-8
-set relativenumber
-set number
+set hidden " Allow editing multiple buffers without saving
+set relativenumber " Show relative line numbers
+set number " Display cursor line number
+set expandtab " Convert tabs to spaces
 set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
-set autoindent
-set splitright " open split on right
-set splitbelow " open split below
-set incsearch " Highlight search
-set ignorecase
-set smartcase
-set hlsearch
-set hidden
+set smarttab " Convert tabs at the beginning of a line to spaces
+set shiftwidth=2 " Default tabs to 2 spaces
+set softtabstop=2
+set ignorecase " Case insensitive search
+set smartcase " If pattern has uppercase then case sensitive
+set nobackup
+set nowritebackup
+set cmdheight=2 " Better display for messages
+set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
+set shortmess+=c " Decrease message size
+set signcolumn=yes " Always show signcolumns
 
-autocmd BufEnter * silent! lcd %:p:h " Set working directory to file being opened
-
-let mapleader = ','
-
-map <leader>q :noh<CR>
-
-nmap <leader>x :cclose<CR>
-
-" Save with cltr+s in normal and insert mode
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
-" Quit with Ctrl+q
 map <C-q> <esc>:q<CR>
-imap <C-q> <esc>:q:<CR>
+imap <C-q> <esc>:q<CR>
 
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 
-" Kill buffer and pane
-nmap <leader>d :bd<CR>
-
-" Execute most common macro buffer 'q'
+" Execute macro in q buffer
 map Q @q
 
-" Automatically close scratch preview
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Gradle files as Groovy
-au BufNewFile,BufRead *.gradle setf groovy
-
 " ========================================================================
-"                           Themes & colors
+"                             Themes & colors
 " ========================================================================
 
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -107,140 +70,129 @@ endif
 syntax enable
 set background=dark
 
-" let g:gruvbox_bold = 1
-" let g:gruvbox_italic = 1
-" let g:gruvbox_contrast_dark = 'soft'
 colorscheme dracula
 
 " ========================================================================
-"                          Plugin Configuration
+"                           Plugin Configuration
 " ========================================================================
-
-" SuperTab
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" NERDTree
-map <C-t> :NERDTreeToggle<CR>
-
-let NERDTreeShowHidden = 1
-
-" Close vim if NERDTree is ithe only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Open NERDTree when opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" CtrlP
-" let g:ctrlp_map = '<leader>t'
-" let g:ctrlp_show_hidden = 1
-" let g:ctrlp_max_files = 0
-" let g:ctrlp_custom_ignore = '/doc\|/_build\|build\|DS_Store\|git' " TODO: Set up custom environment ignore
-
-" Search and jump to tags
-" nmap <leader>f <esc>:CtrlPTag<CR>
 
 " Winteract
 nmap <leader>w :InteractiveWindow<CR>
 
 " fzf
-nmap <leader>b :Buffers<CR>
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nmap <leader>t :Files<CR>
-" search tags in current buffer
-nmap <leader>f :BTags<CR>
-" search tags in project
-nmap <leader>F :Tags<CR>
-
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
-
-" Ack
-cnoreabbrev Ack Ack!
-nnoremap <leader>a :Ack!<Space>
-nmap <C-i> :Ack!<CR>
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 " Airline
 let g:airline_theme = 'deus'
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-" TComment
-nmap <leader>c :TComment<CR>
-vmap <leader>c :TCommentBlock<CR>
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Bufkill
-nmap <leader>D :BD<CR>
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" Vim-Rooter
-let g:rooter_silent_chdir = 1
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" NeoMake
-autocmd! BufWritePost * Neomake
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Alchemist
-let g:alchemist_tag_disable = 1
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-nmap <leader>B :Mcompile<CR>
-nmap <leader>T :Mtest<CR>
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" TagBar
-nmap <C-m> :TagbarToggle<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
-" Rainbow Parentheses always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-let g:tagbar_type_elixir = {
-      \ 'ctagstype' : 'elixir',
-      \ 'kinds' : [
-      \ 'f:functions',
-      \ 'functions:functions',
-      \ 'c:callbacks',
-      \ 'd:delegates',
-      \ 'e:exceptions',
-      \ 'i:implementations',
-      \ 'a:macros',
-      \ 'o:operators',
-      \ 'm:modules',
-      \ 'p:protocols',
-      \ 'r:records',
-      \ 't:tests'
-      \ ]
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+
+" Add diagnostic info for https://github.com/itchyny/lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
       \ }
 
-let g:tagbar_type_kotlin = {
-      \ 'ctagstype' : 'kotlin',
-      \ 'kinds' : [
-      \ 'o:objects',
-      \ 'c:classes',
-      \ 'd:data classes',
-      \ 'i:interfaces',
-      \ 't:typealiases',
-      \ 'C:constants',
-      \ 'p:properties',
-      \ 'f:functions',
-      \ 'e:extensions',
-      \ 'P:packages',
-      \ 'I:imports',
-      \ ]
-      \ }
+
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
