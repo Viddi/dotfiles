@@ -51,29 +51,10 @@ ZSH_THEME="steeef"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # User configuration
-
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # iTerm2
 export LC_ALL=en_US.UTF-8  
@@ -105,12 +86,12 @@ fi
 
 # fzf + ag configuration
 if _has fzf && _has ag; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS='
-  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
-  --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+    --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
+    --color info:141,prompt:84,spinner:212,pointer:212,marker:212
   '
 fi
 
@@ -121,9 +102,6 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 fi
 
 # Autogen
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
@@ -163,3 +141,5 @@ alias btdc="echo -e \"disconnect\n\" | bluetoothctl"
 btc () {
   echo -e "connect $*\n" | bluetoothctl
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

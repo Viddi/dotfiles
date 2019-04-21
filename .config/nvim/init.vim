@@ -1,10 +1,11 @@
 " ========================================================================
-"                             Plugins
+"                                 Plugins
 " ========================================================================
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Language Server Protocol
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'sheerun/vim-polyglot'
 
 " Fuzzy search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -12,16 +13,15 @@ Plug 'junegunn/fzf.vim'
 
 " Window management
 Plug 'romgrk/winteract.vim'
-Plug 'sheerun/vim-polyglot'
 
 " Status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'bling/vim-bufferline'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'zefei/vim-wintabs'
 Plug 'edkolev/tmuxline.vim'
 
 " Colorschemes
-Plug 'flazz/vim-colorschemes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -41,10 +41,11 @@ set ignorecase " Case insensitive search
 set smartcase " If pattern has uppercase then case sensitive
 set nobackup
 set nowritebackup
-set cmdheight=2 " Better display for messages
+set cmdheight=1 " Better display for messages
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set shortmess+=c " Decrease message size
-set signcolumn=yes " Always show signcolumns
+set signcolumn=no " Always show signcolumns
+set noshowmode " Don't show modes since it's displayed in Lightline
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -59,18 +60,26 @@ nnoremap <C-p> :bprev<CR>
 " Execute macro in q buffer
 map Q @q
 
+" Save on focus loss
+au FocusLost * :wa
+
 " ========================================================================
 "                             Themes & colors
 " ========================================================================
 
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+if $TERM == "rxvt-unicode-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
 endif
 
 syntax enable
 set background=dark
-
 colorscheme dracula
+
+" Gray 239 - Cyan 117 - Green 84 - Purple 141
+" Remove background to keep transparency
+hi Normal guibg=NONE ctermbg=NONE
+hi TabLineFill ctermfg=239 ctermbg=117
+hi TabLineSel ctermfg=84 ctermbg=NONE
 
 " ========================================================================
 "                           Plugin Configuration
@@ -82,13 +91,44 @@ nmap <leader>w :InteractiveWindow<CR>
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nmap <leader>t :Files<CR>
+let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_nvim_statusline = 0 " Disable statusline overwriting
 
-" Airline
-let g:airline_theme = 'deus'
-let g:airline#extensions#tmuxline#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" Lightline
+let g:lightline = {
+\  'colorscheme': 'dracula',
+\  'active': {
+\    'left': [
+\      ['mode', 'paste'],
+\      ['gitbranch', 'cocstatus', 'readonly', 'filename']
+\    ]
+\  },
+\  'component_function': {
+\    'gitbranch': 'gitbranch#name',
+\    'readonly': 'LightlineReadonly',
+\    'filename': 'LightlineFilename',
+\    'cocstatus': 'coc#status'
+\  }
+\}
+
+" Hide readonly label in help buffers
+function! LightlineReadonly()
+  return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
+
+" Remove the bar between filename and modified sign
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
+
+" tmuxline
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = 'full'
+
+" Wintabs
+let g:wintabs_ui_sep_rightmost = ''
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -163,21 +203,6 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-
 
 " Using CocList
 " Show all diagnostics

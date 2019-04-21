@@ -1,31 +1,30 @@
-! Dracula color scheme
-URxvt.foreground: #F8F8F2
-URxvt.background: [85]#282A36
-
+!! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: [85]#282A36
 !! black
-URxvt.color0: #000000
-URxvt.color8: #44475A
+*.color0: #000000
+*.color8: #4D4D4D
 !! red
-URxvt.color1: #FF5555
-URxvt.color9: #FFB86C
+*.color1: #FF5555
+*.color9: #FF6E67
 !! green
-URxvt.color2: #50FA7B
-URxvt.color10: #50FA7B
+*.color2: #50FA7B
+*.color10: #5AF78E
 !! yellow
-URxvt.color3: #E6DB74
-URxvt.color11: #F1FA8C
+*.color3: #F1FA8C
+*.color11: #F4F99D
 !! blue
-URxvt.color4: #6272A4
-URxvt.color12: #6272A4
+*.color4: #BD93F9
+*.color12: #CAA9FA
 !! magenta
-URxvt.color5: #BD93F9
-URxvt.color13: #FF79C6
+*.color5: #FF79C6
+*.color13: #FF92D0
 !! cyan
-URxvt.color6: #8BE9FD
-URxvt.color14: #66D9EF
+*.color6: #8BE9FD
+*.color14: #9AEDFE
 !! white
-URxvt.color7: #666666
-URxvt.color15: #FFFFFF
+*.color7: #BFBFBF
+*.color15: #E6E6E6
 
 URxvt.intensityStyles: false
 URxvt.depth: 32
@@ -34,12 +33,12 @@ URxvt.scrollBar: false
 URxvt.cursorColor: #50FA7B
 
 !! Cycle commands
-URxvt.keysym.Control-k: \033[A
-URxvt.keysym.Control-j: \033[B
+URxvt.keysym.M-k: \033[A
+URxvt.keysym.M-j: \033[B
 
 !! jump between words
-URxvt.keysym.Control-h: \033[1;5D
-URxvt.keysym.Control-l: \033[1;5C
+URxvt.keysym.M-h: \033[1;5D
+URxvt.keysym.M-l: \033[1;5C
 
 !! extensions
 URxvt.perl-ext-common: default,url-select,matcher,keyboard-select,selection-to-clipboard
