@@ -7,6 +7,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'sheerun/vim-polyglot'
 
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 " Fuzzy search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -17,7 +20,7 @@ Plug 'romgrk/winteract.vim'
 " Status bar
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'zefei/vim-wintabs'
+Plug 'ap/vim-buftabline'
 Plug 'edkolev/tmuxline.vim'
 
 " Colorschemes
@@ -61,12 +64,12 @@ nnoremap <C-p> :bprev<CR>
 map Q @q
 
 " Save on focus loss
-au FocusLost * :wa
+au FocusLost * silent! wa
+set autowriteall
 
 " ========================================================================
 "                             Themes & colors
 " ========================================================================
-
 if $TERM == "rxvt-unicode-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
 endif
@@ -78,12 +81,17 @@ colorscheme dracula
 " Gray 239 - Cyan 117 - Green 84 - Purple 141
 " Remove background to keep transparency
 hi Normal guibg=NONE ctermbg=NONE
-hi TabLineFill ctermfg=239 ctermbg=117
-hi TabLineSel ctermfg=84 ctermbg=NONE
+hi BufTabLineFill ctermbg=239
+hi BufTabLineCurrent ctermfg=84
+hi BufTabLineHidden ctermfg=117 ctermbg=239
 
 " ========================================================================
 "                           Plugin Configuration
 " ========================================================================
+
+" Ranger
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+let g:ranger_map_keys = 0
 
 " Winteract
 nmap <leader>w :InteractiveWindow<CR>
