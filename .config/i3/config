@@ -5,7 +5,7 @@ gaps outer 0
 set $mod Mod1
 set $term --no-startup-id urxvt
 font pango:DejaVu Sans Mono 12
-# smart_gaps on
+smart_gaps on
 smart_borders on
 focus_follows_mouse no
 

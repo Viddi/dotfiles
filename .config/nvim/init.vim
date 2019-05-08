@@ -2,7 +2,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " LSP
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " Support for most languages
+Plug 'tomtom/tcomment_vim' " Multi-language commenting
 
 " File manager
 Plug 'francoiscabrol/ranger.vim'
@@ -19,7 +20,6 @@ Plug 'romgrk/winteract.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch' " Display git branch on status bar
 Plug 'ap/vim-buftabline' " Display buffers on tab bar
-Plug 'edkolev/tmuxline.vim' " Display tmux info below status bar
 
 " Colorschemes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -27,14 +27,61 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " ========================================================================
+"                             Basic Configuration
+" ========================================================================
+set encoding=utf-8
+set hidden " Allow editing multiple buffers without saving
+set relativenumber " Show relative line numbers
+set number " Display cursor line number
+set expandtab " Convert tabs to spaces
+set smartindent
+set smarttab " Convert tabs at the beginning of a line to spaces
+set shiftwidth=2 " Default tabs to 2 spaces
+set softtabstop=2
+set ignorecase " Case insensitive search
+set smartcase " If pattern has uppercase then case sensitive
+set nobackup
+set nowritebackup
+set cmdheight=2 " Better display for messages
+set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
+set shortmess+=c " Decrease message size
+set signcolumn=yes " Always show signcolumns
+set noshowmode " Don't show modes since it's displayed in Lightline
+
+" let mapleader = " "
+
+map <leader>d :bd<CR>
+nnoremap<leader>q :noh<CR>
+
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
+map <C-q> <esc>:q<CR>
+imap <C-q> <esc>:q<CR>
+
+" Cycle through buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+
+" Execute macro in q buffer
+map Q @q
+
+" Save on focus loss
+au FocusLost * silent! wa
+set autowriteall
+
+" ========================================================================
 "                                 LSP
 " ========================================================================
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+\  pumvisible() ? "\<C-n>" :
+\  <SID>check_back_space() ? "\<TAB>" :
+\  coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -43,7 +90,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-SPACE> coc#refresh()
 
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -70,15 +117,12 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f :Format<CR>
 
 augroup mygroup
   autocmd!
@@ -95,7 +139,7 @@ nmap <leader>a <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of current line
 nmap <leader>ac <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf <Plug>(coc-fix-current)
+" nmap <leader>qf <Plug>(coc-fix-current)
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -103,23 +147,11 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+" ========================================================================
+"                                TComment
+" ========================================================================
+nmap <leader>c :TComment<CR>
+vmap <leader>c :TCommentBlock<CR>
 
 " ========================================================================
 "                                 Ranger
@@ -137,7 +169,7 @@ let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_nvim_statusline = 0 " Disable statusline overwriting
 
 " ========================================================================
-"                           Window Management
+"                            Window Management
 " ========================================================================
 nmap <leader>w :InteractiveWindow<CR>
 
@@ -152,11 +184,11 @@ syntax enable
 set background=dark
 colorscheme dracula
 
-" Gray 239 - Cyan 117 - Green 84 - Purple 141
-" Remove background to keep transparency
+" Remove background to keep consistent with xresources
 hi Normal guibg=NONE ctermbg=NONE
 
 " Theming for vim-buftabline plugin
+" Gray 239 - Cyan 117 - Green 84 - Purple 141
 hi BufTabLineFill ctermbg=239
 hi BufTabLineCurrent ctermfg=84
 hi BufTabLineHidden ctermfg=117 ctermbg=239
@@ -191,46 +223,3 @@ function! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
-
-" tmuxline
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = 'full'
-
-" ========================================================================
-"                             Basic Configuration
-" ========================================================================
-set encoding=utf-8
-set hidden " Allow editing multiple buffers without saving
-set relativenumber " Show relative line numbers
-set number " Display cursor line number
-set expandtab " Convert tabs to spaces
-set smartindent
-set smarttab " Convert tabs at the beginning of a line to spaces
-set shiftwidth=2 " Default tabs to 2 spaces
-set softtabstop=2
-set ignorecase " Case insensitive search
-set smartcase " If pattern has uppercase then case sensitive
-set nobackup
-set nowritebackup
-set cmdheight=1 " Better display for messages
-set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
-set shortmess+=c " Decrease message size
-set signcolumn=no " Always show signcolumns
-set noshowmode " Don't show modes since it's displayed in Lightline
-
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
-map <C-q> <esc>:q<CR>
-imap <C-q> <esc>:q<CR>
-
-" Cycle through buffers
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprev<CR>
-
-" Execute macro in q buffer
-map Q @q
-
-" Save on focus loss
-au FocusLost * silent! wa
-set autowriteall
