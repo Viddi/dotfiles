@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'sheerun/vim-polyglot' " Support for most languages
 Plug 'tomtom/tcomment_vim' " Multi-language commenting
+Plug 'jiangmiao/auto-pairs' " Automatically open/close pairs
 
 " File manager
 Plug 'francoiscabrol/ranger.vim'
@@ -15,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 
 " Window management
 Plug 'romgrk/winteract.vim'
+Plug 'vim-scripts/bufkill.vim' " Delete buffer without closing the window
 
 " Status bar
 Plug 'itchyny/lightline.vim'
@@ -42,7 +44,7 @@ set ignorecase " Case insensitive search
 set smartcase " If pattern has uppercase then case sensitive
 set nobackup
 set nowritebackup
-set cmdheight=2 " Better display for messages
+set cmdheight=1 " Better display for messages
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set shortmess+=c " Decrease message size
 set signcolumn=yes " Always show signcolumns
@@ -50,8 +52,7 @@ set noshowmode " Don't show modes since it's displayed in Lightline
 
 " let mapleader = " "
 
-map <leader>d :bd<CR>
-nnoremap<leader>q :noh<CR>
+nmap<leader>q :noh<CR>
 
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -62,6 +63,10 @@ imap <C-q> <esc>:q<CR>
 " Cycle through buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+
+" Kill buffers with/without retaining window and pane
+map <leader>d :bd<CR>
+map <leader>D :BD<CR>
 
 " Execute macro in q buffer
 map Q @q
@@ -94,7 +99,7 @@ inoremap <silent><expr> <C-SPACE> coc#refresh()
 
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -164,9 +169,10 @@ map <C-t> :Ranger<CR>
 "                                 FzF
 " ========================================================================
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-nmap <leader>t :Files<CR>
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_nvim_statusline = 0 " Disable statusline overwriting
+
+nmap <leader>t :Files<CR>
 
 " ========================================================================
 "                            Window Management
@@ -194,7 +200,7 @@ hi BufTabLineCurrent ctermfg=84
 hi BufTabLineHidden ctermfg=117 ctermbg=239
 
 " ========================================================================
-"                               Status Bar
+"                                Lightline
 " ========================================================================
 let g:lightline = {
 \  'colorscheme': 'dracula',
