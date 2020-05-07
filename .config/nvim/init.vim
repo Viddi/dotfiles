@@ -25,6 +25,7 @@ Plug 'ap/vim-buftabline' " Display buffers on tab bar
 
 " Colorschemes
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'kien/rainbow_parentheses.vim'
 
 call plug#end()
 
@@ -43,6 +44,7 @@ set softtabstop=2
 set ignorecase " Case insensitive search
 set smartcase " If pattern has uppercase then case sensitive
 set nobackup
+set noswapfile
 set nowritebackup
 set cmdheight=1 " Better display for messages
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
@@ -93,6 +95,9 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Search open buffers only
+nmap <leader>s :CocList --interactive grep<CR>
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <C-SPACE> coc#refresh()
@@ -168,11 +173,21 @@ map <C-t> :Ranger<CR>
 " ========================================================================
 "                                 FzF
 " ========================================================================
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-let g:fzf_layout = { 'down': '~20%' }
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --follow --hidden --glob "!{.git/*,*.pyc}"'
+" let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = {
+      \ 'window': {
+        \ 'width': 0.8,
+        \ 'height': 0.5,
+        \ 'highlight': 'Comment',
+        \ 'rounded': v:false
+      \ }
+\ }
 let g:fzf_nvim_statusline = 0 " Disable statusline overwriting
 
 nmap <leader>t :Files<CR>
+nmap <leader>T :Buffers<CR>
 
 " ========================================================================
 "                            Window Management
@@ -198,6 +213,11 @@ hi Normal guibg=NONE ctermbg=NONE
 hi BufTabLineFill ctermbg=239
 hi BufTabLineCurrent ctermfg=84
 hi BufTabLineHidden ctermfg=117 ctermbg=239
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ========================================================================
 "                                Lightline

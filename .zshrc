@@ -55,13 +55,14 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
+export PATH="$HOME/.local/lbin:$PATH"
 
 # iTerm2
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
 # mkdir, cd into it
-mkcd () {
+mkcd() {
   mkdir -p "$*"
   cd "$*"
 }
@@ -84,9 +85,9 @@ if [ -e ~/.fzf ]; then
   source ~/.fzf/shell/completion.zsh
 fi
 
-# fzf + ag configuration
-if _has fzf && _has ag; then
-  export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# fzf + rg configuration
+if _has fzf && _has rg; then
+  export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob "!{.git/*}"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS='
@@ -130,9 +131,11 @@ alias tks="tmux kill-session -t"
 # Helpers
 alias rslstart="systemctl --user start rslsync"
 alias rslstop="systemctl --user stop rslsync"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
-alias tmuxconf="vim ~/.tmux.conf"
+alias zshrc="nvim ~/.zshrc"
+alias tmuxconf="nvim ~/.tmux.conf"
+alias i3conf="nvim ~/.config/i3/config"
 
 # Bluetooth functionality
 alias bton="echo -e \"power on\n\" | bluetoothctl"
@@ -143,3 +146,4 @@ btc () {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
