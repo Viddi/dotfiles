@@ -56,6 +56,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
 export PATH="$HOME/.local/lbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # iTerm2
 export LC_ALL=en_US.UTF-8  
