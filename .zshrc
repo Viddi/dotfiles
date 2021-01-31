@@ -138,13 +138,5 @@ alias zshrc="nvim ~/.zshrc"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias i3conf="nvim ~/.config/i3/config"
 
-# Bluetooth functionality
-alias bton="echo -e \"power on\n\" | bluetoothctl"
-alias btoff="echo -e \"power off\n\" | bluetoothctl"
-alias btdc="echo -e \"disconnect\n\" | bluetoothctl"
-btc () {
-  echo -e "connect $*\n" | bluetoothctl
-}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

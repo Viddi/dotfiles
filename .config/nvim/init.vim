@@ -27,6 +27,9 @@ Plug 'ap/vim-buftabline' " Display buffers on tab bar
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'kien/rainbow_parentheses.vim'
 
+" Motion
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
 " ========================================================================
@@ -188,6 +191,7 @@ let g:fzf_nvim_statusline = 0 " Disable statusline overwriting
 
 nmap <leader>t :Files<CR>
 nmap <leader>T :Buffers<CR>
+nmap <leader>b :BTags<CR>
 
 " ========================================================================
 "                            Window Management
@@ -249,3 +253,8 @@ function! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
+
+" ========================================================================
+"                                  Sneak
+" ========================================================================
+let g:sneak#label = 1
