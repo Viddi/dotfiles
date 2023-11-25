@@ -1,6 +1,6 @@
 local M = {}
 
-  -- icons used by other plugins
+-- icons used by other plugins
 M.icons = {
   diagnostics = {
     Error = " ",

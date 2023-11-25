@@ -38,6 +38,11 @@ function M.opts(name)
   return Plugin.values(plugin, "opts", false)
 end
 
+function M.lsp_get_config(server)
+  local configs = require("lspconfig.configs")
+  return rawget(configs, server)
+end
+
 -- returns the root directory based on:
 -- * lsp workspace folders
 -- * lsp root_dir
