@@ -61,11 +61,12 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+          -- map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+          -- map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+          -- map("gra", require("lspsaga").code_action, "[G]oto Code [A]ction", { "n", "x" })
 
           -- Find references for the word under your cursor.
           map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -229,44 +230,49 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { "missing-fields" } },
+              diagnostics = {
+                globals = { "vim" },
+                -- disable = { "missing-fields" },
+              },
+              workspace = {
+                -- Add Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
             },
           },
         },
 
-        -- pyright = {
-        --   settings = {
-        --     python = {
-        --       analysis = {
-        --         autoSearchPaths = true,
-        --         typeCheckingMode = "basic",
-        --       },
-        --     },
-        --   },
-        -- },
-
-        -- ruff = {
-        --   init_options = {
-        --     settings = {
-        --       logLevel = "debug",
-        --     },
-        --   },
-        -- },
-
-        pylsp = {
-          plugins = {
-            pycodestyle = { enabled = false },
-            pyflakes = { enabled = false },
-            pylint = { enabled = false },
-            -- pycodestyle = { enabled = false },
-            -- pyflakes = { enabled = false },
-            ruff = {
-              enabled = true,
-              lineLength = 120,
+        pyright = {
+          settings = {
+            disableOrganizeImports = true,
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                typeCheckingMode = "basic",
+                ignore = { "*" },
+              },
             },
           },
         },
+
+        ruff = {
+          settings = {
+            init_options = {
+              settings = {
+                lineLength = 120,
+              },
+            },
+          },
+        },
+
+        -- pylsp = {
+        --   plugins = {
+        --     -- ruff = {
+        --     --   enabled = true,
+        --     --   lineLength = 120,
+        --     -- },
+        --   },
+        -- },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
@@ -275,13 +281,14 @@ return {
         "stylua",
         "google-java-format",
         "checkstyle",
+        "semgrep",
         "jdtls",
         "graphql-language-service-cli",
         "json-lsp",
         "ktlint",
-        -- "pyright",
-        "python-lsp-server",
+        "pyright",
         "ruff",
+        -- "python-lsp-server",
         -- "isort",
         -- "black",
         "mypy",

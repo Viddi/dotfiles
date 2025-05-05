@@ -1,6 +1,17 @@
 return {
   "nvim-telescope/telescope.nvim",
   opts = {
+    pickers = {
+      find_files = {
+        find_command = {
+          "rg",
+          "--files",
+          "--follow",
+          "--hidden",
+          "--glob=!{.git/*,*.pyc}",
+        },
+      },
+    },
     defaults = {
       prompt_prefix = " ",
       selection_caret = " ",
@@ -59,7 +70,7 @@ return {
     },
   },
   keys = {
-    { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Telescope find files" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
     { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
     { "<leader>fr", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Telescope live grep" },
     { "<leader>fu", "<cmd>Telescope grep_string hidden=true<cr>", desc = "Telescope grep string" },

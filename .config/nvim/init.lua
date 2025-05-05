@@ -54,6 +54,11 @@ map("i", "<C-s>", "<esc>:w<cr>")
 map("n", "<C-q>", "<esc>:q<cr>")
 map("i", "<C-q>", "<esc>:q<cr>")
 
+map("n", "=", [[<cmd>vertical resize +3<cr>]], { desc = "Increase window width +3" })
+map("n", "-", [[<cmd>vertical resize -3<cr>]], { desc = "Decrease window width -3" })
+map("n", "+", [[<cmd>horizontal resize +2<cr>]], { desc = "Increase window height +2" })
+map("n", "_", [[<cmd>horizontal resize -2<cr>]], { desc = "Decrease window height -2" })
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -90,8 +95,8 @@ require("lazy").setup({
 
     -- TODO:
     -- Add a way to read todo's
-    -- Add a keybind to adjust size of neo-tree window to fit current file
     -- Add DAP
+    -- Add Which-Key
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

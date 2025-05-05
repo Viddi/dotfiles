@@ -4,7 +4,8 @@ return {
   opts = {
     options = {
       theme = "tokyonight-moon",
+      globalstatus = true,
     },
-    extensions = { "neo-tree" },
+    extensions = { "neo-tree", "lazy" },
   },
 }
