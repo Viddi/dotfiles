@@ -16,7 +16,7 @@ return {
       enabled = true,
       notify = true,
     },
-    bufdelete = { enabled = false },
+    bufdelete = { enabled = true },
     quickfile = { enabled = true },
     indent = { enabled = true },
     dashboard = { enabled = false },

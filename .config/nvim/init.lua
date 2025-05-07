@@ -43,10 +43,10 @@ vim.opt.signcolumn = "yes" -- Always show signcolumns
 vim.opt.grepprg = "rg --files --follow --hidden --glob '!{.git/*,*.pyc}'"
 
 local map = vim.keymap.set
-map("n", "<C-n>", ":bnext<cr>", { silent = true, desc = "Cycle next buffer" })
-map("n", "<C-p>", ":bprevious<cr>", { silent = true, desc = "Cycle previous buffer" })
-map("n", "<leader>x", ":bdelete<cr>", { silent = true, desc = "Kill current buffer" })
-map("n", "<leader>X", ":bd<cr>", { silent = true, desc = "Kill current buffer and pane" })
+-- map("n", "<C-n>", ":bnext<cr>", { silent = true, desc = "Cycle next buffer" })
+-- map("n", "<C-p>", ":bprevious<cr>", { silent = true, desc = "Cycle previous buffer" })
+-- map("n", "<leader>x", ":bdelete<cr>", { silent = true, desc = "Kill current buffer" })
+-- map("n", "<leader>X", ":bd<cr>", { silent = true, desc = "Kill current buffer and pane" })
 
 map("n", "<leader>q", ":noh<cr>", { silent = true, desc = "Remove search highlights" })
 

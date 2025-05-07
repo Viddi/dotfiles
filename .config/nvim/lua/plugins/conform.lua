@@ -17,6 +17,9 @@ return { -- Autoformat
     format_on_save = false,
     formatters_by_ft = {
       lua = { "stylua" },
+      java = { "google-java-format" },
+      kotlin = { "ktlint" },
+      elixir = { "mix" },
       python = {
         "ruff_fix",
         "ruff_format",
