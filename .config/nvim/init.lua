@@ -43,13 +43,15 @@ vim.opt.signcolumn = "yes" -- Always show signcolumns
 vim.opt.grepprg = "rg --files --follow --hidden --glob '!{.git/*,*.pyc}'"
 
 local map = vim.keymap.set
--- map("n", "<C-n>", ":bnext<cr>")
--- map("n", "<C-p>", ":bprevious<cr>")
+map("n", "<C-n>", ":bnext<cr>", { silent = true, desc = "Cycle next buffer" })
+map("n", "<C-p>", ":bprevious<cr>", { silent = true, desc = "Cycle previous buffer" })
+map("n", "<leader>x", ":bdelete<cr>", { silent = true, desc = "Kill current buffer" })
+map("n", "<leader>X", ":bd<cr>", { silent = true, desc = "Kill current buffer and pane" })
 
-map("n", "<leader>q", ":noh<cr>")
+map("n", "<leader>q", ":noh<cr>", { silent = true, desc = "Remove search highlights" })
 
-map("n", "<C-s>", "<esc>:w<cr>")
-map("i", "<C-s>", "<esc>:w<cr>")
+map("n", "<C-s>", "<esc>:w<cr>", { silent = true, desc = "Save in normal mode" })
+map("i", "<C-s>", "<esc>:w<cr>", { silent = true, desc = "Save in insert mode" })
 
 map("n", "<C-q>", "<esc>:q<cr>")
 map("i", "<C-q>", "<esc>:q<cr>")
@@ -73,12 +75,6 @@ require("lazy").setup({
     },
 
     { import = "plugins" },
-
-    -- {
-    --   "lukas-reineke/indent-blankline.nvim",
-    --   main = "ibl",
-    --   opts = {},
-    -- },
 
     -- {
     --   "folke/persistence.nvim",

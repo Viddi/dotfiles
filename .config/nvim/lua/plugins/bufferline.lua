@@ -1,24 +1,22 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
- keys = {
+  keys = {
     { "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "Toggle Pin" },
     { "<leader>bP", "<cmd>BufferLineGroupClose ungrouped<cr>", desc = "Delete Non-Pinned Buffers" },
     { "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Delete Buffers to the Right" },
     { "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Delete Buffers to the Left" },
-    { "<leader>bx", function() Snacks.bufdelete() end, desc = "Delete Current Buffers" },
-    { "<leader>bX", function() Snacks.bufdelete.delete() end, desc = "Delete All Buffers" },
-    { "<C-p>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-    { "<C-n>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+    -- { "<leader>bx", function() Snacks.bufdelete() end, desc = "Delete Current Buffers" },
+    -- { "<leader>bX", function() Snacks.bufdelete.delete() end, desc = "Delete All Buffers" },
+    -- { "<C-p>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+    -- { "<C-n>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
   opts = {
     options = {
-        -- stylua: ignore
-        close_command = function(n) Snacks.bufdelete(n) end,
-        -- stylua: ignore
-        right_mouse_command = function(n) Snacks.bufdelete(n) end,
+      close_command = "bdelete",
+      right_mouse_command = "bd",
       diagnostics = "nvim_lsp",
       always_show_bufferline = false,
       diagnostics_indicator = function(_, _, diag)
