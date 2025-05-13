@@ -16,17 +16,19 @@ return {
         max_height = 0.8,
         left_width = 0.3,
         keys = {
-          quit = "<C-[>",
+          shuttle = "<tab>",
           vsplit = "v",
           toggle_or_open = "<Enter>",
+          quit = "<C-[>",
         },
       },
       rename = {
         keys = {
-          quit = "<C-[>",
+          -- quit = "<C-[>",
         },
       },
       code_action = {
+        show_server_name = true,
         keys = {
           quit = "<C-[>",
         },
