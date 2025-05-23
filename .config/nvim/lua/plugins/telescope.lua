@@ -78,7 +78,7 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
     { "<leader>ft", "<cmd>Telescope tags<cr>", desc = "Telescope tags" },
     { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Telescope command history" },
-    { "<leader>fu", "<cmd>Telescope lsp_references<cr>", desc = "Telescope lsp refs" },
+    -- { "<leader>fu", "<cmd>Telescope lsp_references<cr>", desc = "Telescope lsp refs" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
   },
 }

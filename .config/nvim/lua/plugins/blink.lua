@@ -29,6 +29,8 @@ return {
       preset = "enter",
       ["<tab>"] = { "select_next", "fallback" },
       ["<S-tab>"] = { "select_prev", "fallback" },
+      ["<C-n>"] = { "select_next", "fallback" },
+      ["<C-p>"] = { "select_prev", "fallback" },
       ["<C-space>"] = { "show_documentation" },
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
