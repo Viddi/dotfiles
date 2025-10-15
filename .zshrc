@@ -91,10 +91,10 @@ if _has fzf && _has rg; then
   export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob "!{.git/*}"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_DEFAULT_OPTS='
-    --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
-    --color info:141,prompt:84,spinner:212,pointer:212,marker:212
-  '
+  # export FZF_DEFAULT_OPTS='
+  #   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
+  #   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
+  # '
 fi
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

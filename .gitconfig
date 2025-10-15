@@ -1,9 +1,10 @@
 [user]
   name = Viðar Ingi Ottósson
-  email = vidaringi0217@gmail.com
+  email = viddiottosson@gmail.com
 [core]
   excludesfile = /Users/Viddi/.gitignore_global
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
+  autocrlf = input
 [color]
   ui = auto
 [color "branch"]

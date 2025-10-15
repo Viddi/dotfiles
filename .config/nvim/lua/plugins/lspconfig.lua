@@ -137,7 +137,6 @@ return {
             group = highlight_augroup,
             callback = vim.lsp.buf.clear_references,
           })
-
           vim.api.nvim_create_autocmd("LspDetach", {
             group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
             callback = function(event2)
@@ -288,6 +287,19 @@ return {
       gitlab_ci_ls = {
         filetypes = { "yml" },
       },
+
+      lemminx = {
+        settings = {
+          format = {
+            format = {
+              enabled = true,
+              splitAttributes = "always",
+              indentStyle = "space",
+              indentSize = 2,
+            },
+          },
+        },
+      },
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
@@ -313,6 +325,7 @@ return {
       "dockerls",
       "yamlls",
       "gitlab-ci-ls",
+      "lemminx",
     })
 
     -- require("mason").setup()
